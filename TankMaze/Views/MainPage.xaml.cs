@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TankMaze.Views;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,11 @@ namespace TankMaze
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Start_Clicked(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(PlayGround));
         }
     }
 }
