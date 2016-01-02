@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TankMaze.Models
+namespace TankMaze.Controllers
 {
-    abstract class Tank
+    class PlayerTankController
     {
     }
 }

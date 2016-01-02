@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TankMaze.Controllers
+namespace TankMaze.Models
 {
-    class Observer
+    abstract class Gift
     {
+
     }
 }

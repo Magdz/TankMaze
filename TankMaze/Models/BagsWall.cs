@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TankMaze.Models
 {
-    abstract class Tank
+    class BagsWall : Wall
     {
     }
 }

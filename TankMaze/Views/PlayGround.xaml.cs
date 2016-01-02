@@ -32,6 +32,7 @@ namespace TankMaze.Views
         {
             if (e.Key == Windows.System.VirtualKey.Up)
             {
+                if (Grid.GetRow(RedTank) == 0) return;
                 RedTank.SetValue(Grid.RowProperty, Grid.GetRow(RedTank) - 1);
                 RedTank.SetValue(Grid.ColumnSpanProperty, 1);
                 RedTank.SetValue(Grid.RowSpanProperty, 2);
@@ -51,6 +52,7 @@ namespace TankMaze.Views
             }
             else if (e.Key == Windows.System.VirtualKey.Left)
             {
+                if (Grid.GetColumn(RedTank) == 0) return;
                 RedTank.SetValue(Grid.ColumnProperty, Grid.GetColumn(RedTank) - 1);
                 RedTank.SetValue(Grid.ColumnSpanProperty, 2);
                 RedTank.SetValue(Grid.RowSpanProperty, 1);
