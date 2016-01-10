@@ -55,6 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Ammo.cs" />
+    <Compile Include="Models\BagsWall.cs" />
+    <Compile Include="Models\Bomb.cs" />
+    <Compile Include="Models\Bullet.cs" />
+    <Compile Include="Models\EnemyBase.cs" />
+    <Compile Include="Models\EnemyTank.cs" />
+    <Compile Include="Models\Gift.cs" />
+    <Compile Include="Models\Gold.cs" />
+    <Compile Include="Models\PlayerTank.cs" />
+    <Compile Include="Models\StoneWall.cs" />
+    <Compile Include="Models\Tank.cs" />
+    <Compile Include="Models\Wall.cs" />
+    <Compile Include="Views\PlayGround.xaml.cs">
+      <DependentUpon>PlayGround.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +78,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\PlayerTankController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PlayGround.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,6 +114,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Grass.png" />
+    <Resource Include="Assets\obj_barrels.png" />
+    <Resource Include="Assets\RedTankDown.png" />
+    <Resource Include="Assets\RedTankLeft.png" />
+    <Resource Include="Assets\RedTankRight.png" />
+    <Resource Include="Assets\RedTankUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

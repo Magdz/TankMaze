@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TankMaze"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="1024" Width="2048">
+    <Grid VerticalAlignment="Top">
+        <Frame x:Name="_NavigationFrame" Content="Frame" Height="993" Width="2040"/>
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="254,389,0,0" VerticalAlignment="Top" Width="480" Height="115" Click="Start_Click"/>
     </Grid>
 </Window>
