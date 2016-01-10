@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1024" Width="2048">
     <Grid VerticalAlignment="Top">
-        <Frame x:Name="_NavigationFrame" Content="Frame" Height="993" Width="2040"/>
+        <Frame x:Name="_NavigationFrame" Height="993" Width="2040" NavigationUIVisibility="Hidden"/>
         <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="254,389,0,0" VerticalAlignment="Top" Width="480" Height="115" Click="Start_Click"/>
     </Grid>
 </Window>

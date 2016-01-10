@@ -8,5 +8,6 @@ namespace TankMaze.Models
 {
     class EnemyBase
     {
+        //int ID = 2;
     }
 }

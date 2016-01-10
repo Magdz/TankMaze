@@ -8,5 +8,6 @@ namespace TankMaze.Models
 {
     class Bomb
     {
+        //int ID = 5;
     }
 }

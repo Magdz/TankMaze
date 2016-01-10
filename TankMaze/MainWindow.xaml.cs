@@ -16,6 +16,7 @@ namespace TankMaze
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             this._NavigationFrame.Navigate(new PlayGround());
+            Start.Visibility = Visibility.Hidden;
         }
     }
 }

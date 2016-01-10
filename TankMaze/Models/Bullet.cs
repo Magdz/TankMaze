@@ -8,5 +8,6 @@ namespace TankMaze.Models
 {
     class Bullet
     {
+        //int ID = 6;
     }
 }

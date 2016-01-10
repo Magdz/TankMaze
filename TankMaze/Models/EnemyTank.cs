@@ -8,6 +8,6 @@ namespace TankMaze.Models
 {
     class EnemyTank : Tank
     {
-
+        //int ID = 9; // the tank takes two cells
     }
 }

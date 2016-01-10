@@ -8,6 +8,6 @@ namespace TankMaze.Models
 {
     class Gold : Gift
     {
-
+        //int ID = 8;
     }
 }

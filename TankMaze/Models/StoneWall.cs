@@ -8,5 +8,6 @@ namespace TankMaze.Models
 {
     class StoneWall : Wall
     {
+        //int ID = 3;
     }
 }

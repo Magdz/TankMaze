@@ -8,6 +8,6 @@ namespace TankMaze.Models
 {
     class Ammo : Gift
     {
-
+        //int ID = 7;
     }
 }

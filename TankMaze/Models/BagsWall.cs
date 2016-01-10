@@ -8,5 +8,6 @@ namespace TankMaze.Models
 {
     class BagsWall : Wall
     {
+        //int ID = 4;
     }
 }
