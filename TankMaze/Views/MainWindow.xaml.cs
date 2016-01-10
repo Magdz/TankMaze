@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TankMaze.Views
+namespace TankMaze
 {
     /// <summary>
-    /// Interaction logic for PlayGround.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class PlayGround : Page
+    public partial class MainWindow : Window
     {
-        public PlayGround()
+        public MainWindow()
         {
             InitializeComponent();
         }
