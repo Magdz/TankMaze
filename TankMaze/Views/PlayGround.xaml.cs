@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using TankMaze.Controllers;
 using TankMaze.Models;
+using TankMaze.Object_Pool;
 
 namespace TankMaze.Views
 {
@@ -17,8 +18,11 @@ namespace TankMaze.Views
         {
             InitializeComponent();
             FocusButton.Focus();
-            playerTank = new PlayerTank(theTank, this);
-            playerController = new PlayerTankController(playerTank, this);
+            ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
+            playerTank = new PlayerTank(theTank);
+            ObjectPool.addObject(ObjectPool.Type.PlayerTank, playerTank);
+            playerController = new PlayerTankController();
+            ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
         }
 
         private void TheGround_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

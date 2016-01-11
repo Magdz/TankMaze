@@ -67,6 +67,7 @@
     <Compile Include="Models\StoneWall.cs" />
     <Compile Include="Models\Tank.cs" />
     <Compile Include="Models\Wall.cs" />
+    <Compile Include="Object Pool\ObjectPool.cs" />
     <Compile Include="Observer\Observer.cs" />
     <Compile Include="Observer\Subject.cs" />
     <Compile Include="Views\PlayGround.xaml.cs">

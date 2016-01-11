@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
 using TankMaze.Models;
+using TankMaze.Object_Pool;
 using TankMaze.Views;
 
 namespace TankMaze.Controllers
@@ -10,10 +11,10 @@ namespace TankMaze.Controllers
         private PlayGround Ground;
         private PlayerTank playerTank;
 
-        public PlayerTankController(PlayerTank playerTank, PlayGround Ground)
+        public PlayerTankController()
         {
-            this.Ground = Ground;
-            this.playerTank = playerTank;
+            Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            playerTank = (PlayerTank)ObjectPool.getObject(ObjectPool.Type.PlayerTank, 0);
         }
 
         public void Move(Key key)

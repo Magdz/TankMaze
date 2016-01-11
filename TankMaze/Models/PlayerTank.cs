@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using TankMaze.Object_Pool;
 using TankMaze.Views;
 
 namespace TankMaze.Models
@@ -22,10 +23,10 @@ namespace TankMaze.Models
             Up,Down,Left,Right
         }
 
-        public PlayerTank(Image theTank, PlayGround Ground)
+        public PlayerTank(Image theTank)
         {
             this.theTank = theTank;
-            this.Ground = Ground;
+            Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
         }
 
         public void Source(Direction direction)
