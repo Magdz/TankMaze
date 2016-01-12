@@ -19,10 +19,11 @@ namespace TankMaze.Views
             InitializeComponent();
             FocusButton.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
-            playerTank = new PlayerTank(theTank);
+            playerTank = new PlayerTank();
             ObjectPool.addObject(ObjectPool.Type.PlayerTank, playerTank);
             playerController = new PlayerTankController();
             ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
+            playerController.Move(System.Windows.Input.Key.Right);
         }
 
         private void TheGround_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

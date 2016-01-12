@@ -23,10 +23,14 @@ namespace TankMaze.Models
             Up,Down,Left,Right
         }
 
-        public PlayerTank(Image theTank)
+        public PlayerTank()
         {
-            this.theTank = theTank;
             Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            theTank = new Image();
+            theTank.Source = LeftImage;
+            SetColumn(0);
+            SetRow(5);
+            Ground.TheGround.Children.Add(theTank);
         }
 
         public void Source(Direction direction)
@@ -44,9 +48,9 @@ namespace TankMaze.Models
 
         public void SetRow(int newRow)
         {
-            theTank.SetValue(Grid.RowProperty, newRow);
             theTank.SetValue(Grid.ColumnSpanProperty, 1);
             theTank.SetValue(Grid.RowSpanProperty, 2);
+            theTank.SetValue(Grid.RowProperty, newRow);
         }
 
         public int GetColumn()
@@ -56,9 +60,9 @@ namespace TankMaze.Models
 
         public void SetColumn(int newColumn)
         {
-            theTank.SetValue(Grid.ColumnProperty, newColumn);
             theTank.SetValue(Grid.ColumnSpanProperty, 2);
             theTank.SetValue(Grid.RowSpanProperty, 1);
+            theTank.SetValue(Grid.ColumnProperty, newColumn);
         }
 
     }
