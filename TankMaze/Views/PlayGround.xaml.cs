@@ -19,7 +19,9 @@ namespace TankMaze.Views
             InitializeComponent();
             FocusButton.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
-            playerTank = new PlayerTank();
+            Bomb b = new Bomb(2, 2);
+            EnemyBase Eb = new EnemyBase(8, 8);
+            playerTank = new PlayerTank(5,0);
             ObjectPool.addObject(ObjectPool.Type.PlayerTank, playerTank);
             playerController = new PlayerTankController();
             ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using TankMaze.Object_Pool;
@@ -16,20 +15,19 @@ namespace TankMaze.Models
         private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankRight.png", UriKind.Absolute));
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankLeft.png", UriKind.Absolute));
         private Image theTank { get; }
-        private PlayGround Ground;
 
         public enum Direction
         {
             Up,Down,Left,Right
         }
 
-        public PlayerTank()
+        public PlayerTank(int Row, int Column)
         {
-            Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
             theTank = new Image();
             theTank.Source = LeftImage;
-            SetColumn(0);
-            SetRow(5);
+            SetColumn(Column);
+            SetRow(Row);
             Ground.TheGround.Children.Add(theTank);
         }
 

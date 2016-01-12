@@ -63,6 +63,7 @@
     <Compile Include="Models\EnemyTank.cs" />
     <Compile Include="Models\Gift.cs" />
     <Compile Include="Models\Gold.cs" />
+    <Compile Include="Models\MazeComponent.cs" />
     <Compile Include="Models\PlayerTank.cs" />
     <Compile Include="Models\StoneWall.cs" />
     <Compile Include="Models\Tank.cs" />
@@ -121,11 +122,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Grass.png" />
-    <Resource Include="Assets\obj_barrels.png" />
     <Resource Include="Assets\RedTankDown.png" />
     <Resource Include="Assets\RedTankLeft.png" />
     <Resource Include="Assets\RedTankRight.png" />
     <Resource Include="Assets\RedTankUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Barrels.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BaseDown.png" />
+    <Resource Include="Assets\BaseLeft.png" />
+    <Resource Include="Assets\BaseRight.png" />
+    <Resource Include="Assets\BaseUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BlockWall.png" />
+    <Resource Include="Assets\HorizontalWall.png" />
+    <Resource Include="Assets\VerticalWall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
