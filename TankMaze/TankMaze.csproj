@@ -70,6 +70,7 @@
     <Compile Include="Object Pool\ObjectPool.cs" />
     <Compile Include="Observer\Observer.cs" />
     <Compile Include="Observer\Subject.cs" />
+    <Compile Include="Singleton\Singleton.cs" />
     <Compile Include="Views\PlayGround.xaml.cs">
       <DependentUpon>PlayGround.xaml</DependentUpon>
     </Compile>
