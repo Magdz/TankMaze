@@ -8,6 +8,6 @@ namespace TankMaze.Observer
 {
     interface Observer
     {
-        void Update(double Row, double Column , bool State);
+        void Update(int Row, int Column , bool State);
     }
 }
