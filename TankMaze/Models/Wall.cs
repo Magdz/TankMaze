@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TankMaze.Models
+﻿namespace TankMaze.Models
 {
-    abstract class Wall
+    abstract class Wall : MazeComponent
     {
+        public Wall(int Row, int Column) : base(Row, Column)
+        {
+        }
     }
 }

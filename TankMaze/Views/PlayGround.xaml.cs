@@ -19,7 +19,7 @@ namespace TankMaze.Views
             InitializeComponent();
             FocusButton.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
-            Bomb b = new Bomb(2, 2);
+            Ammo test = new Ammo(2, 2, MazeComponent.Direction.Up);
             EnemyBase Eb = new EnemyBase(8, 8);
             playerTank = new PlayerTank(5,0);
             ObjectPool.addObject(ObjectPool.Type.PlayerTank, playerTank);
@@ -30,6 +30,7 @@ namespace TankMaze.Views
 
         private void TheGround_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
+            PlayerTankController playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
             playerController.Move(e.Key);
         }
     }

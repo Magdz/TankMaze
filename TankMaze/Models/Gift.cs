@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TankMaze.Models
 {
-    abstract class Gift
+    abstract class Gift : MazeComponent
     {
-
+        public Gift(int Row, int Column) : base(Row, Column)
+        {
+        }
     }
 }

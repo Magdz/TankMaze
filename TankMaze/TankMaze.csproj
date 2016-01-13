@@ -63,7 +63,7 @@
     <Compile Include="Models\EnemyTank.cs" />
     <Compile Include="Models\Gift.cs" />
     <Compile Include="Models\Gold.cs" />
-    <Compile Include="Models\MazeComponent.cs" />
+    <Compile Include="Models\Base Model\MazeComponent.cs" />
     <Compile Include="Models\PlayerTank.cs" />
     <Compile Include="Models\StoneWall.cs" />
     <Compile Include="Models\Tank.cs" />
@@ -140,6 +140,19 @@
     <Resource Include="Assets\BlockWall.png" />
     <Resource Include="Assets\HorizontalWall.png" />
     <Resource Include="Assets\VerticalWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GoldDouble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CircularBags.png" />
+    <Resource Include="Assets\HorizontalBags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\VerticalBags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\LargeAmmo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
