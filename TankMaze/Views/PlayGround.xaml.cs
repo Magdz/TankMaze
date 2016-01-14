@@ -12,20 +12,15 @@ namespace TankMaze.Views
     /// </summary>
     public partial class PlayGround : Page
     {
-        PlayerTank playerTank;
-        PlayerTankController playerController;
         public PlayGround()
         {
             InitializeComponent();
             FocusButton.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
-            Ammo test = new Ammo(2, 2, MazeComponent.Direction.Up);
-            EnemyBase Eb = new EnemyBase(8, 8);
-            playerTank = new PlayerTank(5,0);
+            EnemyTank test = new EnemyTank(2, 2, MazeComponent.Direction.Up);
+            EnemyBase Eb = new EnemyBase(8, 8, SingeltonComponent.Direction.Down);
+            PlayerTank playerTank = new PlayerTank(5,0, SingeltonComponent.Direction.Right);
             ObjectPool.addObject(ObjectPool.Type.PlayerTank, playerTank);
-            playerController = new PlayerTankController();
-            ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
-            playerController.Move(System.Windows.Input.Key.Right);
         }
 
         private void TheGround_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

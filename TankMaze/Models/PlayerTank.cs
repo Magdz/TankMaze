@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using TankMaze.Controllers;
 using TankMaze.Object_Pool;
 using TankMaze.Views;
 
 namespace TankMaze.Models
 {
-    class PlayerTank : Tank
+    class PlayerTank : SingeltonComponent
     {
         //int ID = 1; // the tank takes two cells 
 
@@ -14,53 +15,35 @@ namespace TankMaze.Models
         private BitmapImage DownImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankDown.png", UriKind.Absolute));
         private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankRight.png", UriKind.Absolute));
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankLeft.png", UriKind.Absolute));
-        private Image theTank { get; }
 
-        public enum Direction
+        public PlayerTank(int Row, int Column, Direction direction) : base(Row, Column)
         {
-            Up,Down,Left,Right
+            Source(direction);
+            PlayerTankController playerController = new PlayerTankController(this);
+            ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
+            playerController.Move(System.Windows.Input.Key.Right);
         }
 
-        public PlayerTank(int Row, int Column)
+        public override void Source(Direction direction)
         {
-            PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
-            theTank = new Image();
-            theTank.Source = LeftImage;
-            SetColumn(Column);
-            SetRow(Row);
-            Ground.TheGround.Children.Add(theTank);
+            if (direction == Direction.Up) theComponent.Source = UpImage;
+            else if (direction == Direction.Down) theComponent.Source = DownImage;
+            else if (direction == Direction.Left) theComponent.Source = LeftImage;
+            else if (direction == Direction.Right) theComponent.Source = RightImage;
         }
 
-        public void Source(Direction direction)
+        public new void SetRow(int newRow)
         {
-            if (direction == Direction.Up) theTank.Source = UpImage;
-            else if (direction == Direction.Down) theTank.Source = DownImage;
-            else if (direction == Direction.Left) theTank.Source = LeftImage;
-            else if (direction == Direction.Right) theTank.Source = RightImage;
+            theComponent.SetValue(Grid.ColumnSpanProperty, 1);
+            theComponent.SetValue(Grid.RowSpanProperty, 2);
+            base.SetRow(newRow);
         }
 
-        public int GetRow()
+        public new void SetColumn(int newColumn)
         {
-            return Grid.GetRow(theTank);
-        }
-
-        public void SetRow(int newRow)
-        {
-            theTank.SetValue(Grid.ColumnSpanProperty, 1);
-            theTank.SetValue(Grid.RowSpanProperty, 2);
-            theTank.SetValue(Grid.RowProperty, newRow);
-        }
-
-        public int GetColumn()
-        {
-            return Grid.GetColumn(theTank);
-        }
-
-        public void SetColumn(int newColumn)
-        {
-            theTank.SetValue(Grid.ColumnSpanProperty, 2);
-            theTank.SetValue(Grid.RowSpanProperty, 1);
-            theTank.SetValue(Grid.ColumnProperty, newColumn);
+            theComponent.SetValue(Grid.ColumnSpanProperty, 2);
+            theComponent.SetValue(Grid.RowSpanProperty, 1);
+            base.SetColumn(newColumn);
         }
 
     }

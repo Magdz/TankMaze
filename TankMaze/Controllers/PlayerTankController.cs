@@ -8,13 +8,11 @@ namespace TankMaze.Controllers
 {
     class PlayerTankController
     {
-        private PlayGround Ground;
         private PlayerTank playerTank;
 
-        public PlayerTankController()
+        public PlayerTankController(PlayerTank playerTank)
         {
-            Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
-            playerTank = (PlayerTank)ObjectPool.getObject(ObjectPool.Type.PlayerTank, 0);
+            this.playerTank = playerTank;
         }
 
         public void Move(Key key)

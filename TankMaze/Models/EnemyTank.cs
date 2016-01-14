@@ -1,13 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace TankMaze.Models
 {
-    class EnemyTank : Tank
+    class EnemyTank : MazeComponent
     {
         //int ID = 9; // the tank takes two cells
+        private BitmapImage UpImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyUp.png", UriKind.Absolute));
+        private BitmapImage DownImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyDown.png", UriKind.Absolute));
+        private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyRight.png", UriKind.Absolute));
+        private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyLeft.png", UriKind.Absolute));
+
+        public EnemyTank(int Row, int Column, Direction direction) : base(Row, Column)
+        {
+            Source(direction);
+        }
+        
+        public override void Source(Direction direction)
+        {
+            if (direction == Direction.Up) theComponent.Source = UpImage;
+            else if (direction == Direction.Down) theComponent.Source = DownImage;
+            else if (direction == Direction.Left) theComponent.Source = LeftImage;
+            else if (direction == Direction.Right) theComponent.Source = RightImage;
+        }
+
+        public new void SetRow(int newRow)
+        {
+            theComponent.SetValue(Grid.ColumnSpanProperty, 1);
+            theComponent.SetValue(Grid.RowSpanProperty, 2);
+            base.SetRow(newRow);
+        }
+
+        public new void SetColumn(int newColumn)
+        {
+            theComponent.SetValue(Grid.ColumnSpanProperty, 2);
+            theComponent.SetValue(Grid.RowSpanProperty, 1);
+            base.SetColumn(newColumn);
+        }
     }
 }

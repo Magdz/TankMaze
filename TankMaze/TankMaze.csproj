@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Ammo.cs" />
     <Compile Include="Models\BagsWall.cs" />
+    <Compile Include="Models\Base Model\SingeltonComponent.cs" />
     <Compile Include="Models\Bomb.cs" />
     <Compile Include="Models\Bullet.cs" />
     <Compile Include="Models\EnemyBase.cs" />
@@ -66,7 +67,6 @@
     <Compile Include="Models\Base Model\MazeComponent.cs" />
     <Compile Include="Models\PlayerTank.cs" />
     <Compile Include="Models\StoneWall.cs" />
-    <Compile Include="Models\Tank.cs" />
     <Compile Include="Models\Wall.cs" />
     <Compile Include="Object Pool\ObjectPool.cs" />
     <Compile Include="Observer\Observer.cs" />
@@ -153,6 +153,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\LargeAmmo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\EnemyDown.png" />
+    <Resource Include="Assets\EnemyLeft.png" />
+    <Resource Include="Assets\EnemyRight.png" />
+    <Resource Include="Assets\EnemyUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\LaserHorizontal.png" />
+    <Resource Include="Assets\LaserVertical.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
