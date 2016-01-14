@@ -8,8 +8,8 @@ namespace TankMaze.Observer
 {
     interface Subject
     {
-        void Add(Observer o);
-        void Remove(Observer o);
+        void Add(Observer observer);
+        void Remove(Observer observer);
         void Notify();
     }
 }
