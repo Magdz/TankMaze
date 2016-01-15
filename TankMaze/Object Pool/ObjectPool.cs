@@ -12,13 +12,13 @@ namespace TankMaze.Object_Pool
         private static PlayerTank playerTank;
         private static PlayerTankController playerController;
         private static EnemyBase enemyBase;
-        private static ArrayList ammos;
-        private static ArrayList bagWalls;
-        private static ArrayList bombs;
-        private static ArrayList bullets;
-        private static ArrayList enemyTanks;
-        private static ArrayList gold;
-        private static ArrayList stoneWalls;
+        private static ArrayList ammos = new ArrayList();
+        private static ArrayList bagWalls = new ArrayList();
+        private static ArrayList bombs = new ArrayList();
+        private static ArrayList bullets = new ArrayList();
+        private static ArrayList enemyTanks = new ArrayList();
+        private static ArrayList gold = new ArrayList();
+        private static ArrayList stoneWalls = new ArrayList();
 
         public enum Type
         {
