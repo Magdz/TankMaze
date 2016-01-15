@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Factory\MazeFactory.cs" />
     <Compile Include="Models\Ammo.cs" />
     <Compile Include="Models\BagsWall.cs" />
     <Compile Include="Models\Base Model\SingeltonComponent.cs" />
