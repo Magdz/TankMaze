@@ -2,6 +2,7 @@
 using TankMaze.Object_Pool;
 using TankMaze.Views;
 using TankMaze.Observer;
+using System;
 
 namespace TankMaze.Models
 {
@@ -60,6 +61,11 @@ namespace TankMaze.Models
         {
             if (observer == null) return;
             observer.Update(GetRow(), GetColumn());
+        }
+
+        public Observer.Observer getObserver()
+        {
+            return observer;
         }
     }
 }

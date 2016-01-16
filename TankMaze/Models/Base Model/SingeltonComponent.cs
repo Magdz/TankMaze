@@ -59,7 +59,13 @@ namespace TankMaze.Models
 
         public void Notify()
         {
+            if (observer == null) return;
             observer.Update(GetRow(), GetColumn());
+        }
+
+        public Observer.Observer getObserver()
+        {
+            return observer;
         }
     }
 }

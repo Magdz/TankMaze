@@ -11,5 +11,6 @@ namespace TankMaze.Observer
         void AddObserver(Observer observer);
         void RemoveObserver();
         void Notify();
+        Observer getObserver();
     }
 }

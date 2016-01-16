@@ -70,6 +70,7 @@
     <Compile Include="Models\StoneWall.cs" />
     <Compile Include="Models\Wall.cs" />
     <Compile Include="Object Pool\ObjectPool.cs" />
+    <Compile Include="Observer\Mediator.cs" />
     <Compile Include="Observer\Observer.cs" />
     <Compile Include="Observer\Subject.cs" />
     <Compile Include="Singleton\Singleton.cs" />
