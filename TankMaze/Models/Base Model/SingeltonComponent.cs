@@ -1,11 +1,14 @@
 ﻿using System.Windows.Controls;
 using TankMaze.Object_Pool;
 using TankMaze.Views;
+using TankMaze.Observer;
+using System;
 
 namespace TankMaze.Models
 {
-    abstract class SingeltonComponent
+    abstract class SingeltonComponent : Subject
     {
+        protected Observer.Observer observer;
         protected Image theComponent { get; }
 
         public enum Direction
@@ -43,5 +46,20 @@ namespace TankMaze.Models
         }
 
         public abstract void Source(Direction direction);
+
+        public void AddObserver(Observer.Observer observer)
+        {
+            this.observer = observer;
+        }
+
+        public void RemoveObserver()
+        {
+            observer = null;
+        }
+
+        public void Notify()
+        {
+            observer.Update(GetRow(), GetColumn());
+        }
     }
 }

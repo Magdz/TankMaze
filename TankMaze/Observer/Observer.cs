@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace TankMaze.Observer
 {
-    interface Observer
+    class Observer
     {
-        void Update(int Row, int Column , bool State);
+        private int Row { get; set; }
+        private int Column { get; set; }
+
+        public Observer(Subject subject)
+        {
+            subject.AddObserver(this);
+        }
+        public void Update(int Row, int Column)
+        {
+            this.Row = Row;
+            this.Column = Column;
+        }
     }
 }
