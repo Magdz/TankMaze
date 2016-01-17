@@ -55,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CameraController.cs" />
+    <Compile Include="Controllers\CollisionDetector.cs" />
+    <Compile Include="Controllers\EnemyTankAI.cs" />
+    <Compile Include="Controllers\MazeGenerator.cs" />
+    <Compile Include="Controllers\PathFinder.cs" />
     <Compile Include="Factory\MazeFactory.cs" />
     <Compile Include="Models\Ammo.cs" />
     <Compile Include="Models\BagsWall.cs" />
