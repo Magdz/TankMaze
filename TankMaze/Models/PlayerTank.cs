@@ -18,13 +18,15 @@ namespace TankMaze.Models
 
         public PlayerTank(int Row, int Column, Direction direction) : base(Row, Column)
         {
+            if (thePlayer != null) return;
             Source(direction);
             PlayerTankController playerController = new PlayerTankController(this);
             ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
             playerController.Move(System.Windows.Input.Key.Right);
+            thePlayer = Instance;
         }
 
-        public override void Source(Direction direction)
+        public new void Source(Direction direction)
         {
             if (direction == Direction.Up) theComponent.Source = UpImage;
             else if (direction == Direction.Down) theComponent.Source = DownImage;

@@ -9,10 +9,12 @@ namespace TankMaze.Controllers
     class PlayerTankController
     {
         private PlayerTank playerTank;
+        private PlayGround Ground;
 
         public PlayerTankController(PlayerTank playerTank)
         {
             this.playerTank = playerTank;
+            Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
         }
 
         public void Move(Key key)
@@ -26,13 +28,13 @@ namespace TankMaze.Controllers
             else if (key == Key.Down)
             {
                 playerTank.Source(PlayerTank.Direction.Down);
-                if (playerTank.GetRow() == 33) return;
+                if (playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
                 playerTank.SetRow(playerTank.GetRow() + 1);
             }
             else if (key == Key.Left)
             {
                 playerTank.Source(PlayerTank.Direction.Left);
-                if (playerTank.GetColumn() == 0) return;
+                if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
                 playerTank.SetColumn(playerTank.GetColumn() - 1);
             }
             else if (key == Key.Right)

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 namespace TankMaze.Models
 {
-    class Bullet : SingeltonComponent
+    class Bullet : MazeComponent
     {
         //int ID = 6;
         private BitmapImage Horizontal = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/LaserHorizontal.png", UriKind.Absolute));

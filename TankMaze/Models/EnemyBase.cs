@@ -13,10 +13,12 @@ namespace TankMaze.Models
 
         public EnemyBase(int Row, int Column, Direction direction) : base(Row, Column)
         {
+            if (theEnemyBase != null) return;
             Source(direction);
+            theEnemyBase = Instance;
         }
 
-        public override void Source(Direction direction)
+        public new void Source(Direction direction)
         {
             if (direction == Direction.Up) theComponent.Source = BaseUp;
             else if (direction == Direction.Down) theComponent.Source = BaseDown;

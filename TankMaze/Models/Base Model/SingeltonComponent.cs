@@ -6,18 +6,21 @@ using System;
 
 namespace TankMaze.Models
 {
-    abstract class SingeltonComponent : Subject
+    class SingeltonComponent : Singleton.Singleton<SingeltonComponent>,Subject
     {
         protected Observer.Observer observer;
         protected Image theComponent { get; }
+        protected static SingeltonComponent thePlayer = null;
+        protected static SingeltonComponent theEnemyBase = null;
 
         public enum Direction
         {
             Up, Down, Left, Right
         }
-
-        public SingeltonComponent(int Row, int Column)
+        protected SingeltonComponent() { }
+        protected SingeltonComponent(int Row, int Column)
         {
+            if (thePlayer != null && theEnemyBase != null) return;
             PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
             theComponent = new Image();
             SetColumn(Column);
@@ -45,7 +48,7 @@ namespace TankMaze.Models
             theComponent.SetValue(Grid.ColumnProperty, newColumn);
         }
 
-        public abstract void Source(Direction direction);
+        public void Source(Direction direction) { }
 
         public void AddObserver(Observer.Observer observer)
         {

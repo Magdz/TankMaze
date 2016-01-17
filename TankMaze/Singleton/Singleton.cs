@@ -4,12 +4,9 @@ using System.Reflection;
 namespace TankMaze.Singleton
 {
    public abstract class Singleton<T> where T : class
-    {
+   {
         private static T singletonInstance;
         private static object threadLock = new object();
-        Singleton()
-        {
-        }
 
         public static T Instance
         {

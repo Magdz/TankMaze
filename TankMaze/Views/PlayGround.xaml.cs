@@ -19,6 +19,7 @@ namespace TankMaze.Views
             FocusButton.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
             MazeFactory.createObject(ObjectPool.Type.PlayerTank, 2, 2, MazeComponent.Direction.Right);
+            MazeFactory.createObject(ObjectPool.Type.EnemyBase, 6, 6, MazeComponent.Direction.Left);
             MazeFactory.createObject(ObjectPool.Type.Bomb, 5, 5, MazeComponent.Direction.Up);
         }
 
