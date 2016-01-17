@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace TankMaze.Singleton
 {
-    class Singleton
+   public abstract class Singleton<T> where T : class
     {
+        private static T singletonInstance;
+        private static object threadLock = new object();
         Singleton()
         {
         }
 
-        //Shared object for thread safety
-        private static readonly object threadLock = new object();
-
-        //Sole instance initialization
-        private static Singleton singletonInstance = null;
-
-        public static Singleton Instance
+        public static T Instance
         {
             get
             {
@@ -31,14 +24,24 @@ namespace TankMaze.Singleton
                         if (singletonInstance == null)
                         {
                             //Sole instance instantiation 
-                            singletonInstance = new Singleton();
+                            Type childClass = typeof(T);
+
+                            //Public constructors check
+                            ConstructorInfo[] singletonChildConstructors = childClass.GetConstructors();
+                            if (singletonChildConstructors.Length > 0)
+                            {
+                                throw new InvalidOperationException(String.Format("Child class has a public contrcutor.", childClass.Name));
+                            }
+
+                            //Sole instance creation
+                            singletonInstance = (T)Activator.CreateInstance(childClass, true);
                         }
                     }
                 }
-
                 //Return sole instance
                 return singletonInstance;
             }
         }
+
     }
 }
