@@ -9,8 +9,8 @@ namespace TankMaze.Observer
     class Observer
     {
         private Subject subject { get; }
-        private int Row { get; set; }
-        private int Column { get; set; }
+        public int Row { get; private set; }
+        public int Column { get; private set; }
 
         public Observer(Subject subject)
         {

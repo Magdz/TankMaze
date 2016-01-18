@@ -1,14 +1,15 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using TankMaze.Object_Pool;
 
 namespace TankMaze.Observer
 {
     static class Mediator
     {
-        private static ArrayList CrashObservers = new ArrayList();
-        private static ArrayList WallObservsers  = new ArrayList();
-        private static ArrayList BulletsObservers = new ArrayList();
-        private static Observer PlayerTankObserver;
+        public static List<Observer> CrashObservers = new List<Observer>();
+        public static List<Observer> WallObservsers  = new List<Observer>();
+        public static List<Observer> BulletsObservers = new List<Observer>();
+        public static Observer PlayerTankObserver;
         public static void addObserver(ObjectPool.Type type, Subject subject)
         {
             Observer observer = new Observer(subject);
