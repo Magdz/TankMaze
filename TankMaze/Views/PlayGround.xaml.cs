@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using TankMaze.Controllers;
 using TankMaze.Factory;
@@ -13,20 +14,25 @@ namespace TankMaze.Views
     /// </summary>
     public partial class PlayGround : Page
     {
+        PlayerTankController playerController;
         public PlayGround()
         {
             InitializeComponent();
             FocusButton.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
-            MazeFactory.createObject(ObjectPool.Type.PlayerTank, 2, 2, MazeComponent.Direction.Right);
-            MazeFactory.createObject(ObjectPool.Type.EnemyBase, 6, 6, MazeComponent.Direction.Left);
+            MazeFactory.createObject(ObjectPool.Type.PlayerTank, 2, 2, MazeComponent.Direction.Down);
+            MazeFactory.createObject(ObjectPool.Type.EnemyBase, 33, 20, MazeComponent.Direction.Left);
             MazeFactory.createObject(ObjectPool.Type.Bomb, 5, 5, MazeComponent.Direction.Up);
+            playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
+
         }
 
-        private void TheGround_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TheGround_KeyDown(object sender, KeyEventArgs e)
         {
-            PlayerTankController playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
-            playerController.Move(e.Key);
+            if (e.Key == Key.Space) playerController.Fire();
+            else playerController.Move(e.Key);
+            return;
         }
+
     }
 }

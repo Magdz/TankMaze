@@ -15,14 +15,14 @@ namespace TankMaze.Models
         private BitmapImage DownImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankDown.png", UriKind.Absolute));
         private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankRight.png", UriKind.Absolute));
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankLeft.png", UriKind.Absolute));
-
+        private PlayerTankController playerController;
+        public Direction direction { get; private set; }
         public PlayerTank(int Row, int Column, Direction direction) : base(Row, Column)
         {
             if (thePlayer != null) return;
             Source(direction);
-            PlayerTankController playerController = new PlayerTankController(this);
+            playerController = new PlayerTankController(this);
             ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
-            playerController.Move(System.Windows.Input.Key.Right);
             thePlayer = Instance;
         }
 
@@ -32,6 +32,7 @@ namespace TankMaze.Models
             else if (direction == Direction.Down) theComponent.Source = DownImage;
             else if (direction == Direction.Left) theComponent.Source = LeftImage;
             else if (direction == Direction.Right) theComponent.Source = RightImage;
+            this.direction = direction;
         }
 
         public new void SetRow(int newRow)
