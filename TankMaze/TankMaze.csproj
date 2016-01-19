@@ -79,6 +79,9 @@
     <Compile Include="Observer\Observer.cs" />
     <Compile Include="Observer\Subject.cs" />
     <Compile Include="Singleton\Singleton.cs" />
+    <Compile Include="State\Existent.cs" />
+    <Compile Include="State\Nonexistent.cs" />
+    <Compile Include="State\State.cs" />
     <Compile Include="Views\PlayGround.xaml.cs">
       <DependentUpon>PlayGround.xaml</DependentUpon>
     </Compile>
