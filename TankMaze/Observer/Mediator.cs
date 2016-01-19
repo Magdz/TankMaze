@@ -48,6 +48,10 @@ namespace TankMaze.Observer
             {
                 PlayerTankObserver = null;
             }
+            else if (type==ObjectPool.Type.EnemyBase)
+            {
+                EnemyBaseObserver = null;
+            }
             else if (type == ObjectPool.Type.Bomb || type == ObjectPool.Type.Gold || type == ObjectPool.Type.Ammo)
             {
                 CrashObservers.Remove(subject.getObserver());
@@ -59,6 +63,10 @@ namespace TankMaze.Observer
             else if (type == ObjectPool.Type.BagsWall || type == ObjectPool.Type.StoneWall)
             {
                 WallObservsers.Remove(subject.getObserver());
+            }
+            else if (type==ObjectPool.Type.EnemyTank)
+            {
+                EnemyTankObservers.Remove(subject.getObserver());
             }
 
             subject.RemoveObserver();
