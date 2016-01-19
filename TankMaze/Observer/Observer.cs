@@ -11,6 +11,7 @@ namespace TankMaze.Observer
         private Subject subject { get; }
         public int Row { get; private set; }
         public int Column { get; private set; }
+        public State.State state {get; private set; }
 
         public Observer(Subject subject)
         {
@@ -18,10 +19,11 @@ namespace TankMaze.Observer
             subject.AddObserver(this);
             subject.Notify();
         }
-        public void Update(int Row, int Column)
+        public void Update(int Row, int Column, State.State state)
         {
             this.Row = Row;
             this.Column = Column;
+            this.state = state;
         }
     }
 }
