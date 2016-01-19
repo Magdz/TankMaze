@@ -2,7 +2,7 @@
 using TankMaze.Object_Pool;
 using TankMaze.Views;
 using TankMaze.Observer;
-using System;
+using TankMaze.State;
 
 namespace TankMaze.Models
 {
@@ -10,6 +10,7 @@ namespace TankMaze.Models
     {
         protected Observer.Observer observer;
         protected Image theComponent { get; }
+        public State.State state { get; set; }
         protected static SingeltonComponent thePlayer = null;
         protected static SingeltonComponent theEnemyBase = null;
 
@@ -25,6 +26,7 @@ namespace TankMaze.Models
             theComponent = new Image();
             SetColumn(Column);
             SetRow(Row);
+            state = new Existent(ObjectPool.Type.PlayerTank);
             Ground.TheGround.Children.Add(theComponent);
         }
 
