@@ -23,6 +23,8 @@ namespace TankMaze.Views
             MazeFactory.createObject(ObjectPool.Type.PlayerTank, 2, 2, MazeComponent.Direction.Down);
             MazeFactory.createObject(ObjectPool.Type.EnemyBase, 33, 20, MazeComponent.Direction.Left);
             MazeFactory.createObject(ObjectPool.Type.Bomb, 5, 5, MazeComponent.Direction.Up);
+            MazeFactory.createObject(ObjectPool.Type.StoneWall, 7, 7, MazeComponent.Direction.Down);
+            MazeFactory.createObject(ObjectPool.Type.StoneWall, 8, 8, MazeComponent.Direction.Left);
             playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
 
         }
@@ -31,7 +33,6 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Space) playerController.Fire();
             else playerController.Move(e.Key);
-            return;
         }
 
     }

@@ -36,6 +36,7 @@ namespace TankMaze.Models
         public void SetRow(int newRow)
         {
             theComponent.SetValue(Grid.RowProperty, newRow);
+            Notify();
         }
 
         public int GetColumn()
@@ -46,6 +47,7 @@ namespace TankMaze.Models
         public void SetColumn(int newColumn)
         {
             theComponent.SetValue(Grid.ColumnProperty, newColumn);
+            Notify();
         }
 
         public void Source(Direction direction) { }
