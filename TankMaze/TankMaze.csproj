@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -82,6 +85,9 @@
     <Compile Include="State\Existent.cs" />
     <Compile Include="State\Nonexistent.cs" />
     <Compile Include="State\State.cs" />
+    <Compile Include="Views\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlayGround.xaml.cs">
       <DependentUpon>PlayGround.xaml</DependentUpon>
     </Compile>
@@ -98,6 +104,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PlayGround.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +185,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Grass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\TankMazeLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\MainMenuBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\StartGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ExitButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\MenuControls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\WindowIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

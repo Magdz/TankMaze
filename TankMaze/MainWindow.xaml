@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TankMaze"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1024" Width="2048">
+        WindowState="Maximized"
+        Title="TankMaze" Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}" Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" ResizeMode="NoResize" Icon="Assets/WindowIcon.png">
     <Grid VerticalAlignment="Top">
-        <Frame x:Name="_NavigationFrame" Height="993" Width="2040" NavigationUIVisibility="Hidden"/>
-        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="254,389,0,0" VerticalAlignment="Top" Width="480" Height="115" Click="Start_Click"/>
+        <Frame x:Name="_NavigationFrame" Height="993" Width="2040" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
