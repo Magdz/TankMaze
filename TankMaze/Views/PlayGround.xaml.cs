@@ -18,15 +18,10 @@ namespace TankMaze.Views
         public PlayGround()
         {
             InitializeComponent();
-            FocusButton.Focus();
+            TheGround.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
-            MazeFactory.createObject(ObjectPool.Type.PlayerTank, 2, 2, MazeComponent.Direction.Down);
-            MazeFactory.createObject(ObjectPool.Type.EnemyBase, 33, 20, MazeComponent.Direction.Left);
-            MazeFactory.createObject(ObjectPool.Type.Bomb, 5, 5, MazeComponent.Direction.Up);
-            MazeFactory.createObject(ObjectPool.Type.StoneWall, 7, 7, MazeComponent.Direction.Down);
-            MazeFactory.createObject(ObjectPool.Type.StoneWall, 8, 8, MazeComponent.Direction.Left);
+            MazeGenerator.Generate();
             playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
-
         }
 
         private void TheGround_KeyDown(object sender, KeyEventArgs e)

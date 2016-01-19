@@ -20,28 +20,28 @@ namespace TankMaze.Controllers
 
         public void Move(Key key)
         {
-            if (key == Key.Up)
+            if (key == Key.W)
             {
                 if (playerTank.GetRow() == 0) return;
                 if (CollisionDetector.WallCheck(playerTank.GetRow() - 1, playerTank.GetColumn())) return;
                 playerTank.SetRow(playerTank.GetRow() - 1);
                 playerTank.Source(SingeltonComponent.Direction.Up);
             }
-            else if (key == Key.Down)
+            else if (key == Key.S)
             {
                 if (playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
                 if (CollisionDetector.WallCheck(playerTank.GetRow() + 2, playerTank.GetColumn())) return;
                 playerTank.SetRow(playerTank.GetRow() + 1);
                 playerTank.Source(SingeltonComponent.Direction.Down);
             }
-            else if (key == Key.Left)
+            else if (key == Key.A)
             {
                 if (playerTank.GetColumn() == 0) return;
                 if (CollisionDetector.WallCheck(playerTank.GetRow(), playerTank.GetColumn() - 1)) return;
                 playerTank.SetColumn(playerTank.GetColumn() - 1);
                 playerTank.Source(SingeltonComponent.Direction.Left);
             }
-            else if (key == Key.Right)
+            else if (key == Key.D)
             {
                 if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
                 if (CollisionDetector.WallCheck(playerTank.GetRow(), playerTank.GetColumn() + 2)) return;

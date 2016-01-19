@@ -15,7 +15,7 @@ namespace TankMaze.Models
 
         public enum Direction
         {
-            Up, Down, Left, Right
+            Up, Down, Left, Right, Special
         }
 
         public MazeComponent(int Row, int Column)

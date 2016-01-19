@@ -16,7 +16,7 @@ namespace TankMaze.Models
 
         public enum Direction
         {
-            Up, Down, Left, Right
+            Up, Down, Left, Right, Special
         }
         protected SingeltonComponent() { }
         protected SingeltonComponent(int Row, int Column)

@@ -16,22 +16,22 @@ namespace TankMaze.Controllers
         {
             if (!(playerTank.GetColumn() > 15 && playerTank.GetColumn() < 40))
                 if (!(playerTank.GetRow() > 10 && playerTank.GetRow() < 25)) return;
-            if(key == Key.Up)
+            if(key == Key.W)
             {
                 if (Top == 0) return;
                 Top += 30;
             }
-            else if(key == Key.Down)
+            else if(key == Key.S)
             {
-                if (Top == ((24 - Ground.TheGround.RowDefinitions.Count) * 30)) return;
+                if (Top == ((25 - Ground.TheGround.RowDefinitions.Count) * 30)) return;
                 Top -= 30;
             }
-            if(key == Key.Left)
+            if(key == Key.A)
             {
                 if (Left == 0) return;
                 Left += 30;
             }
-            else if(key == Key.Right)
+            else if(key == Key.D)
             {
                 if (Left == ((45 - Ground.TheGround.ColumnDefinitions.Count) * 30)) return;
                 Left -= 30;
