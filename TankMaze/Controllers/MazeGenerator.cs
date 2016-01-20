@@ -39,22 +39,21 @@ namespace TankMaze.Controllers
         private static void GeneratePlayer()
         {
             // PlayerTank ID = 1
-            int Row = (random.Next()) % (Ground.TheGround.RowDefinitions.Count);
-            int Column = (random.Next()) % (Ground.TheGround.ColumnDefinitions.Count);
-            Maze[Row, Column] = 1;
+            Maze[3, 2] = 1;
         }
 
         private static void GenerateEnemyBase()
         {
             // EnemyBase ID = 2
-            int Row;
-            int Column;
-            do
+            int Row = 28;
+            int Column = 60;
+            for(int i=0; i < 5; ++i)
             {
-                Row = (random.Next()) % (Ground.TheGround.RowDefinitions.Count);
-                Column = (random.Next()) % (Ground.TheGround.ColumnDefinitions.Count);
-            } while (Maze[Row, Column] != -1);
-            Maze[Row, Column] = 2;
+                for(int j=0; j < 5; ++j)
+                {
+                    Maze[Row + i, Column + j] = 2;
+                }
+            }
         }
 
         private static void GenerateStoneWalls()
@@ -78,11 +77,18 @@ namespace TankMaze.Controllers
                     switch(Maze[row, column])
                     {
                         case 1:
-                            if (Maze[row, column + 1] == 1) MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Right);
-                            else MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Down);
+                            try
+                            {
+                                if (Maze[row, column + 1] == 1) MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Right);
+                                else MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Down);
+                            }catch(Exception e) { }
                             break;
                         case 2:
-                            MazeFactory.createObject(ObjectPool.Type.EnemyBase, row, column, MazeComponent.Direction.Left);
+                            try
+                            {
+                                MazeFactory.createObject(ObjectPool.Type.EnemyBase, row, column, MazeComponent.Direction.Special);
+                            }catch(Exception e) { }
+                            column += 4;
                             break;
                         case 3:
                             if (row != 0 && row != Ground.TheGround.RowDefinitions.Count - 1 && Maze[row + 1, column] == 3 && Maze[row - 1, column] == 3)

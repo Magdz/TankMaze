@@ -24,12 +24,19 @@ namespace TankMaze.Controllers
             {
                 if (playerTank.GetRow() == 0) return;
                 if (CollisionDetector.WallCheck(playerTank.GetRow() - 1, playerTank.GetColumn())) return;
+                if (playerTank.direction == SingeltonComponent.Direction.Right) playerTank.SetColumn(playerTank.GetColumn() + 1);
                 playerTank.SetRow(playerTank.GetRow() - 1);
                 playerTank.Source(SingeltonComponent.Direction.Up);
             }
             else if (key == Key.S)
             {
-                if (playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
+                if (playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 2) return;
+                if(playerTank.direction != SingeltonComponent.Direction.Down)
+                {
+                    playerTank.SetRow(playerTank.GetRow() + 1);
+                    playerTank.SetRow(playerTank.GetRow() - 1);
+                    playerTank.Source(SingeltonComponent.Direction.Down);
+                }
                 if (CollisionDetector.WallCheck(playerTank.GetRow() + 2, playerTank.GetColumn())) return;
                 playerTank.SetRow(playerTank.GetRow() + 1);
                 playerTank.Source(SingeltonComponent.Direction.Down);
@@ -43,7 +50,7 @@ namespace TankMaze.Controllers
             }
             else if (key == Key.D)
             {
-                if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
+                if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 2) return;
                 if (CollisionDetector.WallCheck(playerTank.GetRow(), playerTank.GetColumn() + 2)) return;
                 playerTank.SetColumn(playerTank.GetColumn() + 1);
                 playerTank.Source(SingeltonComponent.Direction.Right);

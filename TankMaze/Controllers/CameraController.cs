@@ -33,7 +33,7 @@ namespace TankMaze.Controllers
             }
             else if(key == Key.D)
             {
-                if (Left == ((45 - Ground.TheGround.ColumnDefinitions.Count) * 30)) return;
+                if (Left == ((46 - Ground.TheGround.ColumnDefinitions.Count) * 30)) return;
                 Left -= 30;
             }
             Canvas.SetTop(Ground.TheGround, Top);
