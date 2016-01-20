@@ -151,12 +151,6 @@
     <Resource Include="Assets\Barrels.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\BaseDown.png" />
-    <Resource Include="Assets\BaseLeft.png" />
-    <Resource Include="Assets\BaseRight.png" />
-    <Resource Include="Assets\BaseUp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\BlockWall.png" />
     <Resource Include="Assets\HorizontalWall.png" />
     <Resource Include="Assets\VerticalWall.png" />
@@ -210,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Audio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\EnemyBase.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
