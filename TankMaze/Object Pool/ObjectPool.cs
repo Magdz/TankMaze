@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TankMaze.Controllers;
 using TankMaze.Models;
+using TankMaze.Observer;
 using TankMaze.Views;
 
 namespace TankMaze.Object_Pool
@@ -55,6 +56,23 @@ namespace TankMaze.Object_Pool
             else if (type == Type.EnemyTank) enemyTanks.Add(Obj);
             else if (type == Type.Gold) gold.Add(Obj);
             else if (type == Type.StoneWall) stoneWalls.Add(Obj);
+        }
+
+        public static void removeObject(Type type, object Obj)
+        {
+            Mediator.removeObserver(type, (Subject)Obj);
+            if (type == Type.PlayerTank)
+            {
+                playerTank = null;
+                playerController = null;
+            }
+            else if (type == Type.EnemyBase) enemyBase = null;
+            else if (type == Type.Ammo) ammos.Remove(Obj);
+            else if (type == Type.BagsWall) bagWalls.Remove(Obj);
+            else if (type == Type.Bomb) bombs.Remove(Obj);
+            else if (type == Type.Bullet) bullets.Remove(Obj);
+            else if (type == Type.EnemyTank) enemyTanks.Remove(Obj);
+            else if (type == Type.Gold) gold.Remove(Obj);
         }
     }
 }

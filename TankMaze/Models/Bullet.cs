@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Media.Imaging;
+using TankMaze.Controllers;
 
 namespace TankMaze.Models
 {
@@ -8,10 +9,12 @@ namespace TankMaze.Models
         //int ID = 6;
         private BitmapImage Horizontal = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/LaserHorizontal.png", UriKind.Absolute));
         private BitmapImage Vertical = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/LaserVertical.png", UriKind.Absolute));
+        public BulletController bulletController { get; private set; }
 
         public Bullet(int Row, int Column, Direction direction) : base(Row, Column)
         {
             Source(direction);
+            bulletController = new BulletController(this, direction);
         }
 
         public override void Source(Direction direction)

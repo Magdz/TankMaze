@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Threading;
+using System.Windows.Controls;
 using System.Windows.Input;
 using TankMaze.Factory;
 using TankMaze.Models;
@@ -31,7 +32,7 @@ namespace TankMaze.Controllers
             else if (key == Key.S)
             {
                 if (playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 2 || playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
-                if(playerTank.direction == SingeltonComponent.Direction.Right || playerTank.direction == SingeltonComponent.Direction.Left)
+                if (playerTank.direction == SingeltonComponent.Direction.Right || playerTank.direction == SingeltonComponent.Direction.Left)
                 {
                     if (playerTank.direction == SingeltonComponent.Direction.Right) playerTank.SetColumn(playerTank.GetColumn() + 1);
                     playerTank.SetRow(playerTank.GetRow() - 1);
@@ -67,12 +68,25 @@ namespace TankMaze.Controllers
         }
 
         public void Fire()
-          {
-            if (playerTank.direction == SingeltonComponent.Direction.Up) MazeFactory.createObject(ObjectPool.Type.Bullet, playerTank.GetRow() - 2, playerTank.GetColumn(), MazeComponent.Direction.Up);
-            else if (playerTank.direction == SingeltonComponent.Direction.Down) MazeFactory.createObject(ObjectPool.Type.Bullet, playerTank.GetRow() + 2, playerTank.GetColumn(), MazeComponent.Direction.Down);
-            else if (playerTank.direction == SingeltonComponent.Direction.Left) MazeFactory.createObject(ObjectPool.Type.Bullet, playerTank.GetRow(), playerTank.GetColumn() - 2, MazeComponent.Direction.Left);
-            else if (playerTank.direction == SingeltonComponent.Direction.Right) MazeFactory.createObject(ObjectPool.Type.Bullet, playerTank.GetRow(), playerTank.GetColumn() + 2, MazeComponent.Direction.Right);
-            return;
+        {
+            int fireRow = playerTank.GetRow();
+            int fireColumn = playerTank.GetColumn();
+            MazeComponent.Direction direction = (MazeComponent.Direction)playerTank.direction;
+
+            if (playerTank.direction == SingeltonComponent.Direction.Up || playerTank.direction == SingeltonComponent.Direction.Down)
+            {
+                if (playerTank.GetRow() == 0 || playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 2 || playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
+                if (playerTank.direction == SingeltonComponent.Direction.Up) fireRow = playerTank.GetRow() - 1;
+                else if (playerTank.direction == SingeltonComponent.Direction.Down) fireRow = playerTank.GetRow() + 2;
+            }
+            else if (playerTank.direction == SingeltonComponent.Direction.Left || playerTank.direction == SingeltonComponent.Direction.Right)
+            {
+                if (playerTank.GetColumn() == 0 || playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 2 || playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
+                if (playerTank.direction == SingeltonComponent.Direction.Left) fireColumn = playerTank.GetColumn() - 1;
+                else if (playerTank.direction == SingeltonComponent.Direction.Right) fireColumn = playerTank.GetColumn() + 2;
+            }
+            if (CollisionDetector.WallCheck(fireRow, fireColumn)) return;
+            MazeFactory.createObject(ObjectPool.Type.Bullet, fireRow, fireColumn, direction);
         }
     }
 }

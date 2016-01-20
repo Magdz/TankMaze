@@ -10,7 +10,7 @@ namespace TankMaze.Models
     {
         protected Observer.Observer observer;
         protected Image theComponent { get; }
-        public State.State state { get; set; }
+        private State.State state { get; set; }
         protected static SingeltonComponent thePlayer = null;
         protected static SingeltonComponent theEnemyBase = null;
 
@@ -28,6 +28,16 @@ namespace TankMaze.Models
             SetRow(Row);
             state = new Existent(ObjectPool.Type.PlayerTank);
             Ground.TheGround.Children.Add(theComponent);
+        }
+
+        public void RemoveComponent(ObjectPool.Type type)
+        {
+            if (type == ObjectPool.Type.PlayerTank) thePlayer = null;
+            else if (type == ObjectPool.Type.EnemyBase) theEnemyBase = null;
+            state = new Nonexistent();
+            PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            Ground.TheGround.Children.Remove(theComponent);
+            ObjectPool.removeObject(type, this);
         }
 
         public int GetRow()

@@ -14,8 +14,8 @@ namespace TankMaze.Controllers
         private static PlayerTank playerTank = (PlayerTank)ObjectPool.getObject(ObjectPool.Type.PlayerTank, 0);
         public static void Move(Key key)
         {
-            if (!(playerTank.GetColumn() > 15 && playerTank.GetColumn() < 40))
-                if (!(playerTank.GetRow() > 10 && playerTank.GetRow() < 25)) return;
+            if (!(playerTank.GetColumn() > 15 && playerTank.GetColumn() < 40) && Left == 0)
+                if (!(playerTank.GetRow() > 10 && playerTank.GetRow() < 25) && Top == 0) return;
             if(key == Key.W)
             {
                 if (Top == 0) return;

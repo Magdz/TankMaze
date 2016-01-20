@@ -2,16 +2,16 @@
 using TankMaze.Object_Pool;
 using TankMaze.Views;
 using TankMaze.Observer;
-using System;
+using System.Windows.Threading;
 using TankMaze.State;
 
 namespace TankMaze.Models
 {
-    abstract class MazeComponent : Subject
+    abstract class MazeComponent : DispatcherObject,Subject
     {
         protected Observer.Observer observer;
         protected Image theComponent { get; }
-        public State.State state { get; set; }
+        private State.State state { get; set; }
 
         public enum Direction
         {
@@ -27,6 +27,14 @@ namespace TankMaze.Models
             if (this is StoneWall) state = new Existent(ObjectPool.Type.StoneWall);
             else state = new Existent(ObjectPool.Type.PlayGround);
             Ground.TheGround.Children.Add(theComponent);
+        }
+
+        public void RemoveComponent(ObjectPool.Type type)
+        {
+            state = new Nonexistent();
+            PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            Ground.TheGround.Children.Remove(theComponent);
+            ObjectPool.removeObject(type, this);
         }
 
         public int GetRow()

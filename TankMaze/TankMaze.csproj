@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\AudioController.cs" />
+    <Compile Include="Controllers\BulletController.cs" />
     <Compile Include="Controllers\CameraController.cs" />
     <Compile Include="Controllers\CollisionDetector.cs" />
     <Compile Include="Controllers\EnemyTankAI.cs" />

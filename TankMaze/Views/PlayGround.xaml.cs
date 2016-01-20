@@ -1,10 +1,6 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using TankMaze.Controllers;
-using TankMaze.Factory;
-using TankMaze.Models;
 using TankMaze.Object_Pool;
 
 namespace TankMaze.Views
@@ -26,7 +22,7 @@ namespace TankMaze.Views
 
         private void TheGround_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space) playerController.Fire();
+            if (e.Key == Key.X) playerController.Fire();
             else playerController.Move(e.Key);
         }
 
