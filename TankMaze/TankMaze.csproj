@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\AudioController.cs" />
     <Compile Include="Controllers\CameraController.cs" />
     <Compile Include="Controllers\CollisionDetector.cs" />
     <Compile Include="Controllers\EnemyTankAI.cs" />
@@ -206,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\WindowIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Audio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

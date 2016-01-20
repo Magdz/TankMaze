@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TankMaze.Controllers;
 
 namespace TankMaze.Views
 {
@@ -39,6 +40,7 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Enter)
             {
+                AudioController.startAudio();
                 PlayGroundWindow._NavigationFrame.Navigate(new PlayGround());
             }
             else if(e.Key == Key.S)
@@ -73,6 +75,5 @@ namespace TankMaze.Views
             }
         }
 
-      
     }
 }
