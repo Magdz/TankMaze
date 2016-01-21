@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using TankMaze.Factory;
 using TankMaze.Models;
 using TankMaze.Object_Pool;

@@ -110,13 +110,13 @@ namespace TankMaze.Controllers
                                 }
                                 else if (Maze[row + 1, column] == 1) playerController.Move(System.Windows.Input.Key.S);
                             }
-                            catch(Exception e) { }
+                            catch(Exception) { }
                             break;
                         case 2:
                             try
                             {
                                 MazeFactory.createObject(ObjectPool.Type.EnemyBase, row, column, MazeComponent.Direction.Special);
-                            }catch(Exception e) { }
+                            }catch(Exception) { }
                             column += 4;
                             break;
                         case 3:

@@ -38,13 +38,31 @@ namespace TankMaze.Controllers
                             if (bagWall.state.getState()) bagWall.RemoveComponent(ObjectPool.Type.BagsWall);
                             throw new Exception();
                         }
+                        else if(CollisionDetector.CrashCheck(theBullet.GetRow(), theBullet.GetColumn()))
+                        {
+                            Bomb bomb = (Bomb)ObjectPool.getObject(ObjectPool.Type.Bomb, theBullet.GetRow(), theBullet.GetColumn());
+                            if (bomb.state.getState()) bomb.RemoveComponent(ObjectPool.Type.Bomb);
+                            throw new Exception();
+                        }
+                        else if(CollisionDetector.EnemyTankCheck(theBullet.GetRow(), theBullet.GetColumn()))
+                        {
+                            EnemyTank enemyTank = (EnemyTank)ObjectPool.getObject(ObjectPool.Type.EnemyTank, theBullet.GetRow(), theBullet.GetColumn());
+                            if (enemyTank.state.getState()) enemyTank.RemoveComponent(ObjectPool.Type.EnemyTank);
+                            throw new Exception();
+                        }
+                        else if(CollisionDetector.EnemyBaseCheck(theBullet.GetRow(), theBullet.GetColumn()))
+                        {
+                            EnemyBase enemyBase = (EnemyBase)ObjectPool.getObject(ObjectPool.Type.EnemyBase, 0);
+                            if (enemyBase.state.getState()) enemyBase.RemoveComponent(ObjectPool.Type.EnemyBase);
+                            throw new Exception();
+                        }
                         if (theBullet.GetColumn() > Ground.TheGround.ColumnDefinitions.Count || theBullet.GetRow() > Ground.TheGround.RowDefinitions.Count) throw new Exception();
                         if (direction == MazeComponent.Direction.Up) theBullet.SetRow(theBullet.GetRow() - 1);
                         else if (direction == MazeComponent.Direction.Down) theBullet.SetRow(theBullet.GetRow() + 1);
                         else if (direction == MazeComponent.Direction.Left) theBullet.SetColumn(theBullet.GetColumn() - 1);
                         else if (direction == MazeComponent.Direction.Right) theBullet.SetColumn(theBullet.GetColumn() + 1);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         run = false;
                     }

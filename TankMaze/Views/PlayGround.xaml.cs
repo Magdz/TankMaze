@@ -37,6 +37,7 @@ namespace TankMaze.Views
                 else playerController.Move(e1.Key);
             }
         }
+
         public void nextLevelScreen()
         {
             increaseLevel();
@@ -47,6 +48,7 @@ namespace TankMaze.Views
             NextLevelExitButton.Opacity = 0.5;
             NextLevelExitButton.IsReadOnly = true;
         }
+
         private void pauseGame()
         {
             gamePaused = !gamePaused;
@@ -58,7 +60,6 @@ namespace TankMaze.Views
             OptionsButton.IsReadOnly = true;
             ExitButton.Opacity = 0.5;
             ExitButton.IsReadOnly = true;
-
         }
 
         private void resumeGame()
@@ -67,7 +68,6 @@ namespace TankMaze.Views
             TheGround.Opacity = 1;
             PauseMenu.Visibility = Visibility.Hidden;
             gamePaused = !gamePaused;
-            
         }
 
         public void increaseScore(int increaseStep)
@@ -77,7 +77,7 @@ namespace TankMaze.Views
             ScoreValue.Content = scorePanelTemp;
         }
 
-        public void increaseLevel()
+        private void increaseLevel()
         {
             scorePanelTemp = Int32.Parse(LevelValue.Content.ToString());
             scorePanelTemp++;
@@ -130,6 +130,7 @@ namespace TankMaze.Views
                 resumeGame();
             }
         }
+
         private void ExitButton_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -187,5 +188,6 @@ namespace TankMaze.Views
                 NextLevelExitButton.Focus();
             }
         }
+
     }
 }

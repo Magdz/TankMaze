@@ -71,15 +71,20 @@ namespace TankMaze.Object_Pool
                 foreach (StoneWall stoneWall in stoneWalls)
                     if (row == stoneWall.GetRow() && column == stoneWall.GetColumn()) return stoneWall;
             }
+            else if (type == Type.EnemyTank)
+            {
+                foreach (EnemyTank enemyTank in enemyTanks)
+                    if (row == enemyTank.GetRow() && column == enemyTank.GetColumn()) return enemyTank;
+            }
             return null;
         }
 
         public static void addObject(Type type, object Obj)
         {
-            if (type == Type.PlayGround) ground = (PlayGround)Obj;
-            else if (type == Type.PlayerTank) playerTank = (PlayerTank)Obj;
-            else if (type == Type.PlayerTankController) playerController = (PlayerTankController)Obj;
-            else if (type == Type.EnemyBase) enemyBase = (EnemyBase)Obj;
+            if (type == Type.PlayGround && ground == null) ground = (PlayGround)Obj;
+            else if (type == Type.PlayerTank && playerTank == null) playerTank = (PlayerTank)Obj;
+            else if (type == Type.PlayerTankController && playerController == null) playerController = (PlayerTankController)Obj;
+            else if (type == Type.EnemyBase && enemyBase == null) enemyBase = (EnemyBase)Obj;
             else if (type == Type.Ammo) ammos.Add(Obj);
             else if (type == Type.BagsWall) bagWalls.Add(Obj);
             else if (type == Type.Bomb) bombs.Add(Obj);
