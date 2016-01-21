@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,6 +15,7 @@ namespace TankMaze.Views
     {
         PlayerTankController playerController;
         bool gamePaused = false;
+        int scorePanelTemp;
         public PlayGround()
         {
             InitializeComponent();
@@ -22,6 +24,8 @@ namespace TankMaze.Views
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
             MazeGenerator.Generate();
             playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
+            ScoreValue.Content = "0";
+            LevelValue.Content = "1";
         }
 
         private void TheGround_KeyDown(object sender, KeyEventArgs e1)
@@ -33,7 +37,16 @@ namespace TankMaze.Views
                 else playerController.Move(e1.Key);
             }
         }
-
+        public void nextLevelScreen()
+        {
+            increaseLevel();
+            TheGround.Opacity = 0.3;
+            LevelUpGrid.Visibility = Visibility.Visible;
+            NextLevelContinueButton.IsReadOnly = true;
+            NextLevelContinueButton.Focus();
+            NextLevelExitButton.Opacity = 0.5;
+            NextLevelExitButton.IsReadOnly = true;
+        }
         private void pauseGame()
         {
             gamePaused = !gamePaused;
@@ -55,6 +68,21 @@ namespace TankMaze.Views
             PauseMenu.Visibility = Visibility.Hidden;
             gamePaused = !gamePaused;
             
+        }
+
+        public void increaseScore(int increaseStep)
+        {
+            scorePanelTemp = Int32.Parse(ScoreValue.Content.ToString());
+            scorePanelTemp+= increaseStep;
+            ScoreValue.Content = scorePanelTemp;
+        }
+
+        public void increaseLevel()
+        {
+            scorePanelTemp = Int32.Parse(LevelValue.Content.ToString());
+            scorePanelTemp++;
+            LevelValue.Content = scorePanelTemp;
+            NewLevelValue.Content = scorePanelTemp;
         }
 
         private void ContinueButton_KeyDown(object sender, KeyEventArgs e)
@@ -79,7 +107,7 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Enter)
             {
-              //To be implemented  
+                //To be implemented
             }
             else if (e.Key == Key.W)
             {
@@ -121,6 +149,42 @@ namespace TankMaze.Views
             else if (e.Key == Key.P)
             {
                 resumeGame();
+            }
+        }
+
+        private void NextLevelContinueButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //To be implemented
+            }
+            else if (e.Key == Key.S)
+            {
+                NextLevelExitButton.Opacity = 1;
+                NextLevelExitButton.Focus();
+                NextLevelContinueButton.Opacity = 0.5;
+            }
+            else if (e.Key == Key.Tab)
+            {
+                NextLevelContinueButton.Focus();
+            }
+        }
+
+        private void NextLevelExitButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Application.Current.Shutdown();
+            }
+            else if (e.Key == Key.W)
+            {
+                NextLevelContinueButton.Opacity = 1;
+                NextLevelContinueButton.Focus();
+                NextLevelExitButton.Opacity = 0.5;
+            }
+            else if (e.Key == Key.Tab)
+            {
+                NextLevelExitButton.Focus();
             }
         }
     }
