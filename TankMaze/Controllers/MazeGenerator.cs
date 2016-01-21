@@ -18,6 +18,8 @@ namespace TankMaze.Controllers
             InitializeMaze();
             GeneratePlayer();
             GenerateEnemyBase();
+            PathFinder.GeneratePath();
+            //PathFinder.TestPath(Ground);
             GenerateStoneWalls();
             console();
             Build();
