@@ -74,7 +74,7 @@ namespace TankMaze.Models
         public void Notify()
         {
             if (observer == null) return;
-            observer.Update(GetRow(), GetColumn(), state);
+            observer.Update(GetRow(), GetColumn(), Direction.Special, state);
         }
 
         public Observer.Observer getObserver()

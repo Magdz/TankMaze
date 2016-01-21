@@ -11,6 +11,7 @@ namespace TankMaze.Models
         private BitmapImage DownImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyDown.png", UriKind.Absolute));
         private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyRight.png", UriKind.Absolute));
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyLeft.png", UriKind.Absolute));
+        private MazeComponent.Direction direction;
 
         public EnemyTank(int Row, int Column, Direction direction) : base(Row, Column)
         {
@@ -23,6 +24,7 @@ namespace TankMaze.Models
             else if (direction == Direction.Down) theComponent.Source = DownImage;
             else if (direction == Direction.Left) theComponent.Source = LeftImage;
             else if (direction == Direction.Right) theComponent.Source = RightImage;
+            this.direction = direction;
         }
 
         public new void SetRow(int newRow)
@@ -37,6 +39,12 @@ namespace TankMaze.Models
             theComponent.SetValue(Grid.ColumnSpanProperty, 2);
             theComponent.SetValue(Grid.RowSpanProperty, 1);
             base.SetColumn(newColumn);
+        }
+
+        public new void Notify()
+        {
+            if (observer == null) return;
+            observer.Update(GetRow(), GetColumn(), direction, state);
         }
     }
 }
