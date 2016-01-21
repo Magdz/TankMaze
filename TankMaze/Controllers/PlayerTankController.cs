@@ -85,7 +85,6 @@ namespace TankMaze.Controllers
                 if (playerTank.direction == SingeltonComponent.Direction.Left) fireColumn = playerTank.GetColumn() - 1;
                 else if (playerTank.direction == SingeltonComponent.Direction.Right) fireColumn = playerTank.GetColumn() + 2;
             }
-            if (CollisionDetector.WallCheck(fireRow, fireColumn)) return;
             MazeFactory.createObject(ObjectPool.Type.Bullet, fireRow, fireColumn, direction);
         }
     }

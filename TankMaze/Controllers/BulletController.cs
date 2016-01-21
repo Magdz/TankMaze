@@ -32,12 +32,17 @@ namespace TankMaze.Controllers
                 {
                     try
                     {
+                        if (CollisionDetector.WallCheck(theBullet.GetRow(), theBullet.GetColumn()))
+                        {
+                            BagsWall bagWall = (BagsWall)ObjectPool.getObject(ObjectPool.Type.BagsWall, theBullet.GetRow(), theBullet.GetColumn());
+                            if (bagWall.state.getState()) bagWall.RemoveComponent(ObjectPool.Type.BagsWall);
+                            throw new Exception();
+                        }
                         if (theBullet.GetColumn() > Ground.TheGround.ColumnDefinitions.Count || theBullet.GetRow() > Ground.TheGround.RowDefinitions.Count) throw new Exception();
                         if (direction == MazeComponent.Direction.Up) theBullet.SetRow(theBullet.GetRow() - 1);
                         else if (direction == MazeComponent.Direction.Down) theBullet.SetRow(theBullet.GetRow() + 1);
                         else if (direction == MazeComponent.Direction.Left) theBullet.SetColumn(theBullet.GetColumn() - 1);
                         else if (direction == MazeComponent.Direction.Right) theBullet.SetColumn(theBullet.GetColumn() + 1);
-                        if (CollisionDetector.WallCheck(theBullet.GetRow(), theBullet.GetColumn())) throw new Exception();
                     }
                     catch (Exception e)
                     {

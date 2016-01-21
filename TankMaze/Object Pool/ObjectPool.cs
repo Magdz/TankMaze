@@ -18,7 +18,7 @@ namespace TankMaze.Object_Pool
         private static ArrayList bombs = new ArrayList();
         private static ArrayList bullets = new ArrayList();
         private static ArrayList enemyTanks = new ArrayList();
-        private static ArrayList gold = new ArrayList();
+        private static ArrayList golds = new ArrayList();
         private static ArrayList stoneWalls = new ArrayList();
 
         public enum Type
@@ -27,6 +27,7 @@ namespace TankMaze.Object_Pool
             PlayerTank, PlayerTankController,
             Ammo, BagsWall, Bomb, Bullet, EnemyBase, EnemyTank, Gold, StoneWall
         }
+
         public static object getObject(Type type,int index)
         {
             if (type == Type.PlayGround) return ground;
@@ -38,8 +39,38 @@ namespace TankMaze.Object_Pool
             else if (type == Type.Bomb) return bombs[index];
             else if (type == Type.Bullet) return bullets[index];
             else if (type == Type.EnemyTank) return enemyTanks[index];
-            else if (type == Type.Gold) return gold[index];
+            else if (type == Type.Gold) return golds[index];
             else if (type == Type.StoneWall) return stoneWalls[index];
+            return null;
+        }
+
+        public static object getObject(Type type, int row, int column)
+        {
+            if (type == Type.Ammo)
+            {
+                foreach (Ammo ammo in ammos)
+                    if (row == ammo.GetRow() && column == ammo.GetColumn()) return ammo;
+            }
+            else if (type == Type.BagsWall)
+            {
+                foreach (BagsWall bagWall in bagWalls)
+                    if (row == bagWall.GetRow() && column == bagWall.GetColumn()) return bagWall;
+            }
+            else if (type == Type.Bomb)
+            {
+                foreach (Bomb bomb in bombs)
+                    if (row == bomb.GetRow() && column == bomb.GetColumn()) return bomb;
+            }
+            else if (type == Type.Gold)
+            {
+                foreach (Gold gold in golds)
+                    if (row == gold.GetRow() && column == gold.GetColumn()) return gold;
+            }
+            else if (type == Type.StoneWall)
+            {
+                foreach (StoneWall stoneWall in stoneWalls)
+                    if (row == stoneWall.GetRow() && column == stoneWall.GetColumn()) return stoneWall;
+            }
             return null;
         }
 
@@ -54,7 +85,7 @@ namespace TankMaze.Object_Pool
             else if (type == Type.Bomb) bombs.Add(Obj);
             else if (type == Type.Bullet) bullets.Add(Obj);
             else if (type == Type.EnemyTank) enemyTanks.Add(Obj);
-            else if (type == Type.Gold) gold.Add(Obj);
+            else if (type == Type.Gold) golds.Add(Obj);
             else if (type == Type.StoneWall) stoneWalls.Add(Obj);
         }
 
@@ -72,7 +103,7 @@ namespace TankMaze.Object_Pool
             else if (type == Type.Bomb) bombs.Remove(Obj);
             else if (type == Type.Bullet) bullets.Remove(Obj);
             else if (type == Type.EnemyTank) enemyTanks.Remove(Obj);
-            else if (type == Type.Gold) gold.Remove(Obj);
+            else if (type == Type.Gold) golds.Remove(Obj);
         }
     }
 }

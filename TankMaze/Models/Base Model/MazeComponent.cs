@@ -11,7 +11,7 @@ namespace TankMaze.Models
     {
         protected Observer.Observer observer;
         protected Image theComponent { get; }
-        private State.State state { get; set; }
+        public State.State state { get; private set; }
 
         public enum Direction
         {
