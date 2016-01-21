@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TankMaze.Controllers;
 
 namespace TankMaze.Views
@@ -30,6 +19,10 @@ namespace TankMaze.Views
             StartButton.IsReadOnly = true;
             StartButton.IsReadOnlyCaretVisible = false;
             StartButton.AcceptsTab = true;
+            InstructionsButton.IsReadOnly = true;
+            InstructionsButton.IsReadOnlyCaretVisible = false;
+            InstructionsButton.AcceptsTab = true;
+            InstructionsButton.Opacity = 0.5;
             ExitButton.IsReadOnly = true;
             ExitButton.IsReadOnlyCaretVisible = false;
             ExitButton.AcceptsTab = true;
@@ -45,8 +38,8 @@ namespace TankMaze.Views
             }
             else if(e.Key == Key.S)
             {
-                ExitButton.Opacity = 1;
-                ExitButton.Focus();
+                InstructionsButton.Opacity = 1;
+                InstructionsButton.Focus();
                 StartButton.Opacity = 0.5;
             }
             else if(e.Key == Key.Tab)
@@ -57,6 +50,34 @@ namespace TankMaze.Views
         }
        
 
+       
+
+        private void InstructionsButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                InstructionFrame.Visibility = Visibility.Visible;
+                InstructionFrame.Focus();
+            }
+            else if (e.Key == Key.W)
+            {
+                StartButton.Opacity = 1;
+                StartButton.Focus();
+                InstructionsButton.Opacity = 0.5;
+            }
+            else if(e.Key == Key.S)
+            {
+                ExitButton.Opacity = 1;
+                ExitButton.Focus();
+                InstructionsButton.Opacity = 0.5;
+            }
+            else if(e.Key == Key.Tab)
+            {
+                InstructionsButton.Focus();
+            }
+        }
+
+
         private void ExitButton_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -65,8 +86,8 @@ namespace TankMaze.Views
             }
             else if (e.Key == Key.W)
             {
-                StartButton.Opacity = 1;
-                StartButton.Focus();
+                InstructionsButton.Opacity = 1;
+                InstructionsButton.Focus();
                 ExitButton.Opacity = 0.5;
             }
             else if (e.Key == Key.Tab)
@@ -75,5 +96,13 @@ namespace TankMaze.Views
             }
         }
 
+        private void InstructionFrame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                InstructionsButton.Focus();
+                InstructionFrame.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

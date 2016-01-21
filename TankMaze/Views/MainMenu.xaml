@@ -16,12 +16,22 @@
                 <ImageBrush ImageSource="/TankMaze;component/Assets/StartGame.png"/>
             </TextBox.Background>
         </TextBox>
-        <TextBox x:Name="ExitButton" HorizontalAlignment="Left" Height="77" Margin="524,552,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" KeyDown="ExitButton_KeyDown" BorderBrush="{x:Null}" SpellCheck.IsEnabled="True" Cursor="Arrow" TabIndex="2147483647" IsTabStop="False" AllowDrop="False" IsHitTestVisible="False" SelectionBrush="{x:Null}" BorderThickness="0">
+        <TextBox x:Name="ExitButton" HorizontalAlignment="Left" Height="77" Margin="524,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" KeyDown="ExitButton_KeyDown" BorderBrush="{x:Null}" SpellCheck.IsEnabled="True" Cursor="Arrow" TabIndex="2147483647" IsTabStop="False" AllowDrop="False" IsHitTestVisible="False" SelectionBrush="{x:Null}" BorderThickness="0">
             <TextBox.Background>
                 <ImageBrush ImageSource="/TankMaze;component/Assets/ExitButton.png"/>
             </TextBox.Background>
         </TextBox>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="170" Margin="1044,432,0,0" VerticalAlignment="Top" Width="218" Source="/TankMaze;component/Assets/MenuControls.png"/>
+        <TextBox x:Name="InstructionsButton" HorizontalAlignment="Left" Height="77" Margin="524,525,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" IsReadOnlyCaretVisible="True" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="InstructionsButton_KeyDown">
+            <TextBox.Background>
+                <ImageBrush ImageSource="/TankMaze;component/Assets/InstructionsButton.png"/>
+            </TextBox.Background>
+        </TextBox>
+        <Image x:Name="InstructionFrame" HorizontalAlignment="Left" Height="366" Margin="268,356,0,0" VerticalAlignment="Top" Width="750" Source="/TankMaze;component/Assets/Instructions.png" Opacity="0.95" Focusable="True" KeyDown="InstructionFrame_KeyDown" Visibility="Hidden" >
+            <Image.FocusVisualStyle>
+                <Style/>
+            </Image.FocusVisualStyle>
+        </Image>
     </Grid>
 </Page>
     
