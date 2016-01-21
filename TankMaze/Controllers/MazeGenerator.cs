@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using TankMaze.Factory;
 using TankMaze.Models;
 using TankMaze.Object_Pool;
@@ -16,11 +16,15 @@ namespace TankMaze.Controllers
         public static void Generate()
         {
             InitializeMaze();
-            GeneratePlayer();
-            GenerateEnemyBase();
             PathFinder.GeneratePath();
             //PathFinder.TestPath(Ground);
+            GeneratePlayer();
+            GenerateEnemyBase();
             GenerateStoneWalls();
+            OnPathGeneration(300, 800, 4); // BagWalls ID = 4
+            OnPathGeneration(300, 800, 5); // Bombs ID = 5
+            OnPathGeneration(300, 800, 7); // Ammo ID = 7
+            OnPathGeneration(300, 800, 8); // Gold ID = 8
             console();
             Build();
         }
@@ -41,7 +45,11 @@ namespace TankMaze.Controllers
         private static void GeneratePlayer()
         {
             // PlayerTank ID = 1
-            Maze[3, 2] = 1;
+            int Row = 3;
+            int Column = 2;
+            Maze[Row, Column] = 1;
+            if (Maze[Row + 1, Column] == 0) Maze[Row + 1, Column] = 1;
+            else Maze[Row, Column + 1] = 1;
         }
 
         private static void GenerateEnemyBase()
@@ -62,12 +70,23 @@ namespace TankMaze.Controllers
         {
             // StoneWall ID = 3
             int length = random.Next(500, 1500);
-            ArrayList Rows = RandomNumbers(length, Ground.TheGround.RowDefinitions.Count);
-            ArrayList Columns = RandomNumbers(length, Ground.TheGround.ColumnDefinitions.Count);
+            List<int> Rows = RandomNumbers(length, Ground.TheGround.RowDefinitions.Count);
+            List<int> Columns = RandomNumbers(length, Ground.TheGround.ColumnDefinitions.Count);
             for (int i = 0; i < length; ++i)
             {
-                if (Maze[(int)Rows[i], (int)Columns[i]] == -1) Maze[(int)Rows[i], (int)Columns[i]] = 3;
+                if (Maze[Rows[i], Columns[i]] == -1) Maze[Rows[i], Columns[i]] = 3;
             } 
+        }
+
+        private static void OnPathGeneration(int range1, int range2, int ID)
+        {
+            int length = random.Next(range1, range2);
+            List<int> Rows = RandomNumbers(length, Ground.TheGround.RowDefinitions.Count);
+            List<int> Columns = RandomNumbers(length, Ground.TheGround.ColumnDefinitions.Count);
+            for (int i = 0; i < length; ++i)
+            {
+                if (Maze[Rows[i], Columns[i]] == -1 || Maze[Rows[i], Columns[i]] == 0) Maze[Rows[i], Columns[i]] = ID;
+            }
         }
 
         private static void Build()
@@ -81,9 +100,17 @@ namespace TankMaze.Controllers
                         case 1:
                             try
                             {
-                                if (Maze[row, column + 1] == 1) MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Right);
-                                else MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Down);
-                            }catch(Exception e) { }
+                                MazeFactory.createObject(ObjectPool.Type.PlayerTank, row, column, MazeComponent.Direction.Down);
+                                PlayerTankController playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
+                                PlayerTank playerTank = (PlayerTank)ObjectPool.getObject(ObjectPool.Type.PlayerTank, 0);
+                                if (Maze[row, column + 1] == 1)
+                                {
+                                    playerTank.SetRow(playerTank.GetRow() - 1);
+                                    playerController.Move(System.Windows.Input.Key.D);
+                                }
+                                else if (Maze[row + 1, column] == 1) playerController.Move(System.Windows.Input.Key.S);
+                            }
+                            catch(Exception e) { }
                             break;
                         case 2:
                             try
@@ -93,29 +120,19 @@ namespace TankMaze.Controllers
                             column += 4;
                             break;
                         case 3:
-                            if (row != 0 && row != Ground.TheGround.RowDefinitions.Count - 1 && Maze[row + 1, column] == 3 && Maze[row - 1, column] == 3)
-                            {
-                                if (column != 0 && column != Ground.TheGround.ColumnDefinitions.Count - 1 && (Maze[row, column + 1] == 3 || Maze[row, column - 1] == 3)) MazeFactory.createObject(ObjectPool.Type.StoneWall, row, column, MazeComponent.Direction.Special);
-                                else MazeFactory.createObject(ObjectPool.Type.StoneWall, row, column, MazeComponent.Direction.Up);
-                            }
-                            else if (column != 0 && column != Ground.TheGround.ColumnDefinitions.Count - 1 && Maze[row, column + 1] == 3 && Maze[row, column - 1] == 3)
-                            {
-                                if (row != 0 && row != Ground.TheGround.RowDefinitions.Count - 1 && (Maze[row + 1, column] == 3 || Maze[row - 1, column] == 3)) MazeFactory.createObject(ObjectPool.Type.StoneWall, row, column, MazeComponent.Direction.Special);
-                                else MazeFactory.createObject(ObjectPool.Type.StoneWall, row, column, MazeComponent.Direction.Left);
-                            }
-                            else MazeFactory.createObject(ObjectPool.Type.StoneWall, row, column, MazeComponent.Direction.Special);
+                            BuildWalls(row, column, ObjectPool.Type.StoneWall, 3);
                             break;
                         case 4:
-                            MazeFactory.createObject(ObjectPool.Type.BagsWall, row, column, MazeComponent.Direction.Left);
+                            BuildWalls(row, column, ObjectPool.Type.BagsWall, 4);
                             break;
                         case 5:
-                            MazeFactory.createObject(ObjectPool.Type.Bomb, row, column, MazeComponent.Direction.Left);
+                            MazeFactory.createObject(ObjectPool.Type.Bomb, row, column, MazeComponent.Direction.Special);
                             break;
                         case 7:
-                            MazeFactory.createObject(ObjectPool.Type.Ammo, row, column, MazeComponent.Direction.Left);
+                            MazeFactory.createObject(ObjectPool.Type.Ammo, row, column, MazeComponent.Direction.Special);
                             break;
                         case 8:
-                            MazeFactory.createObject(ObjectPool.Type.Gold, row, column, MazeComponent.Direction.Left);
+                            MazeFactory.createObject(ObjectPool.Type.Gold, row, column, MazeComponent.Direction.Special);
                             break;
                         case 9:
                             MazeFactory.createObject(ObjectPool.Type.EnemyTank, row, column, MazeComponent.Direction.Left);
@@ -127,9 +144,24 @@ namespace TankMaze.Controllers
             }
         }
 
-        private static ArrayList RandomNumbers(int length, int max)
+        private static void BuildWalls(int row, int column, ObjectPool.Type type, int ID)
         {
-            ArrayList Numbers = new ArrayList();
+            if (row != 0 && row != Ground.TheGround.RowDefinitions.Count - 1 && Maze[row + 1, column] == ID && Maze[row - 1, column] == ID)
+            {
+                if (column != 0 && column != Ground.TheGround.ColumnDefinitions.Count - 1 && (Maze[row, column + 1] == ID || Maze[row, column - 1] == ID)) MazeFactory.createObject(type, row, column, MazeComponent.Direction.Special);
+                else MazeFactory.createObject(type, row, column, MazeComponent.Direction.Up);
+            }
+            else if (column != 0 && column != Ground.TheGround.ColumnDefinitions.Count - 1 && Maze[row, column + 1] == ID && Maze[row, column - 1] == ID)
+            {
+                if (row != 0 && row != Ground.TheGround.RowDefinitions.Count - 1 && (Maze[row + 1, column] == ID || Maze[row - 1, column] == ID)) MazeFactory.createObject(type, row, column, MazeComponent.Direction.Special);
+                else MazeFactory.createObject(type, row, column, MazeComponent.Direction.Left);
+            }
+            else MazeFactory.createObject(type, row, column, MazeComponent.Direction.Special);
+        }
+
+        private static List<int> RandomNumbers(int length, int max)
+        {
+            List<int> Numbers = new List<int>();
             int count = 0;
             do
             {
