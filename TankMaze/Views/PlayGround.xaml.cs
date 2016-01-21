@@ -39,8 +39,8 @@ namespace TankMaze.Views
             gamePaused = !gamePaused;
             TheGround.Opacity = 0.3;
             PauseMenu.Visibility = Visibility.Visible;
-            ContinueButton.Focus();
             ContinueButton.IsReadOnly = true;
+            ContinueButton.Focus();
             OptionsButton.Opacity = 0.5;
             OptionsButton.IsReadOnly = true;
             ExitButton.Opacity = 0.5;

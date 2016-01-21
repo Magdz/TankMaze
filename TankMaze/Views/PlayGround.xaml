@@ -126,7 +126,7 @@
         </Grid>
         <Grid x:Name="PauseMenu" Height="731" Width="1526" Focusable="True">
             <Image x:Name="image" HorizontalAlignment="Left" Height="248" Margin="167,48,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
-            <TextBox x:Name="ContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" IsReadOnlyCaretVisible="True" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="ContinueButton_KeyDown">
+            <TextBox x:Name="ContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="ContinueButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ContinueButton.png"/>
                 </TextBox.Background>
@@ -136,7 +136,7 @@
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ExitButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="OptionsButton" HorizontalAlignment="Left" Height="77" Margin="524,525,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" IsReadOnlyCaretVisible="True" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="OptionsButton_KeyDown">
+            <TextBox x:Name="OptionsButton" HorizontalAlignment="Left" Height="77" Margin="524,525,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="OptionsButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/OptionsButton.png"/>
                 </TextBox.Background>

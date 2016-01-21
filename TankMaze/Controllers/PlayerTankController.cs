@@ -57,7 +57,7 @@ namespace TankMaze.Controllers
                 {
                     if (playerTank.direction == SingeltonComponent.Direction.Down) playerTank.SetRow(playerTank.GetRow() + 1);
                     playerTank.SetColumn(playerTank.GetColumn() - 1);
-                    playerTank.Source(SingeltonComponent.Direction.Down);
+                    playerTank.Source(SingeltonComponent.Direction.Right);
                 }
                 if (CollisionDetector.WallCheck(playerTank.GetRow(), playerTank.GetColumn() + 2)) return;
                 playerTank.SetColumn(playerTank.GetColumn() + 1);
