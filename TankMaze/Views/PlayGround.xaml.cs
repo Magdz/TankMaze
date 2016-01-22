@@ -84,6 +84,14 @@ namespace TankMaze.Views
             LevelValue.Content = scorePanelTemp;
             NewLevelValue.Content = scorePanelTemp;
         }
+        public void setAmmo(int ammoAmmount)
+        {
+            AmmoValue.Content = ammoAmmount;
+        }
+        public int getAmmo()
+        {
+            return Int32.Parse(AmmoValue.Content.ToString());
+        }
 
         private void ContinueButton_KeyDown(object sender, KeyEventArgs e)
         {

@@ -152,19 +152,10 @@
     <Resource Include="Assets\Barrels.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\BlockWall.png" />
-    <Resource Include="Assets\HorizontalWall.png" />
-    <Resource Include="Assets\VerticalWall.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\GoldDouble.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\CircularBags.png" />
-    <Resource Include="Assets\HorizontalBags.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\VerticalBags.png" />
+    <Resource Include="Assets\Bags.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\LargeAmmo.png" />
@@ -233,6 +224,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\NewLevelPanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\FireDown.png" />
+    <Resource Include="Assets\FireLeft.png" />
+    <Resource Include="Assets\FireRight.png" />
+    <Resource Include="Assets\FireUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Wall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -144,9 +144,9 @@
             <Image x:Name="GamePauseAlertImage" HorizontalAlignment="Left" Height="120" Margin="488,264,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/GamePauseAlert.png"/>
             <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="248" Margin="167,48,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
         </Grid>
-        <Image x:Name="ScorePanel" Height="108" Canvas.Left="1021" Canvas.Top="-28" Width="190" Source="/TankMaze;component/Assets/ScorePanel.png" Opacity="0.7"/>
-        <Label x:Name="ScoreValue" Content="150" Canvas.Left="1034" Canvas.Top="19" FontFamily="Minecrafter Alt" FontSize="16" Opacity="0.7" FlowDirection="RightToLeft"/>
-        <Label x:Name="LevelValue" Content="25" Canvas.Left="1133" Canvas.Top="19" FontFamily="Minecrafter Alt" FontSize="16" Opacity="0.7" FlowDirection="RightToLeft"/>
+        <Image x:Name="ScorePanel" Height="108" Canvas.Left="1021" Canvas.Top="-37" Width="190" Source="/TankMaze;component/Assets/ScorePanel.png" Opacity="0.7"/>
+        <Label x:Name="ScoreValue" Content="150" Canvas.Left="1030" Canvas.Top="12" FontFamily="Minecrafter Alt" Opacity="0.7" FlowDirection="RightToLeft" FontSize="10.667" HorizontalContentAlignment="Center" Width="38" Padding="0,5"/>
+        <Label x:Name="LevelValue" Content="25" Canvas.Left="1164" Canvas.Top="12" FontFamily="Minecrafter Alt" FontSize="10.667" Opacity="0.7" FlowDirection="RightToLeft" RenderTransformOrigin="3.36,0.619" HorizontalContentAlignment="Center" Width="36" Padding="0,5"/>
         <Grid x:Name="LevelUpGrid" Height="731" Width="1526" Focusable="True" Visibility="Hidden">
             <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="248" Margin="167,48,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
             <Image x:Name="LevelUpAlertImage" HorizontalAlignment="Left" Height="120" Margin="479,271,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/LeveledUp.png"/>
@@ -164,5 +164,6 @@
             <Label x:Name="NewLevelValue" Content="1" HorizontalAlignment="Left" Margin="864,424,0,0" VerticalAlignment="Top" FontFamily="Minecrafter Alt" FontSize="53.333" Foreground="White" Background="{x:Null}" Opacity="0.8" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Width="57" Height="60"/>
 
         </Grid>
+        <Label x:Name="AmmoValue" Content="25" Canvas.Left="1097" Canvas.Top="12" FontFamily="Minecrafter Alt" FontSize="10.667" Opacity="0.7" FlowDirection="RightToLeft" RenderTransformOrigin="3.36,0.619" Width="34" Padding="0,5" HorizontalContentAlignment="Center"/>
     </Canvas>
 </Page>

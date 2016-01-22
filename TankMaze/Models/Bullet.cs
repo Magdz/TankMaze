@@ -7,8 +7,11 @@ namespace TankMaze.Models
     class Bullet : MazeComponent
     {
         //int ID = 6;
-        private BitmapImage Horizontal = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/LaserHorizontal.png", UriKind.Absolute));
-        private BitmapImage Vertical = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/LaserVertical.png", UriKind.Absolute));
+        private BitmapImage Up = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/FireUp.png", UriKind.Absolute));
+        private BitmapImage Down = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/FireDown.png", UriKind.Absolute));
+        private BitmapImage Left = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/FireLeft.png", UriKind.Absolute));
+        private BitmapImage Right = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/FireRight.png", UriKind.Absolute));
+
         public BulletController bulletController { get; private set; }
 
         public Bullet(int Row, int Column, Direction direction) : base(Row, Column)
@@ -19,8 +22,10 @@ namespace TankMaze.Models
 
         public override void Source(Direction direction)
         {
-            if (direction == Direction.Up || direction == Direction.Down) theComponent.Source = Vertical;
-            else if (direction == Direction.Left || direction == Direction.Right) theComponent.Source = Horizontal;
+            if (direction == Direction.Up) theComponent.Source = Up;
+            else if (direction == Direction.Down) theComponent.Source = Down;
+            else if (direction == Direction.Left) theComponent.Source = Left;
+            else if (direction == Direction.Right) theComponent.Source = Right;
         }
     }
 }
