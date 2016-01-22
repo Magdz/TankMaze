@@ -17,6 +17,8 @@ namespace TankMaze.Models
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/RedTankLeft.png", UriKind.Absolute));
         private PlayerTankController playerController;
         public Direction direction { get; private set; }
+        public int Ammo { get; set; }
+
         public PlayerTank(int Row, int Column, Direction direction) : base(Row, Column)
         {
             if (thePlayer != null) return;
@@ -24,6 +26,7 @@ namespace TankMaze.Models
             playerController = new PlayerTankController(this);
             ObjectPool.addObject(ObjectPool.Type.PlayerTankController, playerController);
             thePlayer = Instance;
+            Ammo = 10;
         }
 
         public new void Source(Direction direction)

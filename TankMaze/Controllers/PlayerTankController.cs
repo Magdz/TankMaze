@@ -19,50 +19,61 @@ namespace TankMaze.Controllers
 
         public void Move(Key key)
         {
+            int goRow = playerTank.GetRow();
+            int goColumn = playerTank.GetColumn();
+            SingeltonComponent.Direction goDirection = playerTank.direction;
+
             if (key == Key.W)
             {
-                if (playerTank.GetRow() == 0) return;
-                if (CollisionDetector.WallCheck(playerTank.GetRow() - 1, playerTank.GetColumn())) return;
-                if (playerTank.direction == SingeltonComponent.Direction.Right) playerTank.SetColumn(playerTank.GetColumn() + 1);
-                playerTank.SetRow(playerTank.GetRow() - 1);
-                playerTank.Source(SingeltonComponent.Direction.Up);
+                if (goRow == 0) return;
+                goRow--;
+                if (goDirection == SingeltonComponent.Direction.Down) goRow++;
+                else if (goDirection == SingeltonComponent.Direction.Right) goColumn++;
+                goDirection = SingeltonComponent.Direction.Up;
             }
             else if (key == Key.S)
             {
-                if (playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 2 || playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
-                if (playerTank.direction == SingeltonComponent.Direction.Right || playerTank.direction == SingeltonComponent.Direction.Left)
-                {
-                    if (playerTank.direction == SingeltonComponent.Direction.Right) playerTank.SetColumn(playerTank.GetColumn() + 1);
-                    playerTank.SetRow(playerTank.GetRow() - 1);
-                    playerTank.Source(SingeltonComponent.Direction.Down);
-                }
-                if (CollisionDetector.WallCheck(playerTank.GetRow() + 2, playerTank.GetColumn())) return;
-                playerTank.SetRow(playerTank.GetRow() + 1);
-                playerTank.Source(SingeltonComponent.Direction.Down);
+                if (goRow == Ground.TheGround.RowDefinitions.Count - 2 && goDirection == SingeltonComponent.Direction.Down) return;
+                else if (goRow == Ground.TheGround.RowDefinitions.Count - 1) return;
+                goRow++;
+                if (goDirection != SingeltonComponent.Direction.Down) goRow--;
+                if (goDirection == SingeltonComponent.Direction.Right) goColumn++;
+                goDirection = SingeltonComponent.Direction.Down;
             }
             else if (key == Key.A)
             {
                 if (playerTank.GetColumn() == 0) return;
-                if (CollisionDetector.WallCheck(playerTank.GetRow(), playerTank.GetColumn() - 1)) return;
-                if (playerTank.direction == SingeltonComponent.Direction.Down) playerTank.SetRow(playerTank.GetRow() + 1);
-                playerTank.SetColumn(playerTank.GetColumn() - 1);
-                playerTank.Source(SingeltonComponent.Direction.Left);
+                goColumn--;
+                if (goDirection == SingeltonComponent.Direction.Down) goRow++;
+                else if (goDirection == SingeltonComponent.Direction.Right) goColumn++;
+                goDirection = SingeltonComponent.Direction.Left;
             }
             else if (key == Key.D)
             {
-                if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 2 || playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
-                if (playerTank.direction == SingeltonComponent.Direction.Up || playerTank.direction == SingeltonComponent.Direction.Down)
-                {
-                    if (playerTank.direction == SingeltonComponent.Direction.Down) playerTank.SetRow(playerTank.GetRow() + 1);
-                    playerTank.SetColumn(playerTank.GetColumn() - 1);
-                    playerTank.Source(SingeltonComponent.Direction.Right);
-                }
-                if (CollisionDetector.WallCheck(playerTank.GetRow(), playerTank.GetColumn() + 2)) return;
-                playerTank.SetColumn(playerTank.GetColumn() + 1);
-                playerTank.Source(SingeltonComponent.Direction.Right);
+                if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 2 && goDirection == SingeltonComponent.Direction.Right) return;
+                else if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
+                goColumn++;
+                if (goDirection != SingeltonComponent.Direction.Right) goColumn--;
+                if (goDirection == SingeltonComponent.Direction.Down) goRow++;
+                goDirection = SingeltonComponent.Direction.Right;
             }
+            if (CollisionDetector.WallCheck(goRow, goColumn)) return;
+            if (goDirection == SingeltonComponent.Direction.Down || goDirection == SingeltonComponent.Direction.Up)
+            {
+                if (CollisionDetector.WallCheck(goRow + 1, goColumn)) return;
+                playerTank.SetRow(goRow + 1);
+                playerTank.SetColumn(goColumn);
+                playerTank.SetRow(goRow);
+            }
+            else if(goDirection == SingeltonComponent.Direction.Left || goDirection == SingeltonComponent.Direction.Right)
+            {
+                if (CollisionDetector.WallCheck(goRow, goColumn + 1)) return;
+                playerTank.SetColumn(goColumn + 1);
+                playerTank.SetRow(goRow);
+                playerTank.SetColumn(goColumn);
+            }
+            playerTank.Source(goDirection);
             CameraController.Move(key);
-            return;
         }
 
         public void Fire()

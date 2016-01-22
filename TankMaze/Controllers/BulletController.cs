@@ -53,7 +53,12 @@ namespace TankMaze.Controllers
                         else if(CollisionDetector.EnemyBaseCheck(theBullet.GetRow(), theBullet.GetColumn()))
                         {
                             EnemyBase enemyBase = (EnemyBase)ObjectPool.getObject(ObjectPool.Type.EnemyBase, 0);
-                            if (enemyBase.state.getState()) enemyBase.RemoveComponent(ObjectPool.Type.EnemyBase);
+                            if (enemyBase.state.getState())
+                            {
+                                enemyBase.RemoveComponent(ObjectPool.Type.EnemyBase);
+                                Thread.Sleep(1000);
+                                Ground.nextLevelScreen();
+                            }
                             throw new Exception();
                         }
                         if (theBullet.GetColumn() > Ground.TheGround.ColumnDefinitions.Count || theBullet.GetRow() > Ground.TheGround.RowDefinitions.Count) throw new Exception();
