@@ -7,7 +7,7 @@ namespace TankMaze.Models
     {
         //int ID = 8;
         private BitmapImage GoldDouble = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/GoldDouble.png", UriKind.Absolute));
-        public static int Value = 10;
+        public static int Value { get; } = 10;
 
         public Gold(int Row, int Column, Direction direction) : base(Row, Column)
         {

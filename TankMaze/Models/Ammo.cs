@@ -7,7 +7,7 @@ namespace TankMaze.Models
     {
         //int ID = 7;
         private BitmapImage LargeAmmo = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/LargeAmmo.png", UriKind.Absolute));
-        public static int Value = 5;
+        public static int Value { get; } = 5;
 
         public Ammo(int Row, int Column, Direction direction) : base(Row, Column)
         {

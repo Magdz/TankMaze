@@ -15,6 +15,7 @@ namespace TankMaze.Controllers
         {
             this.playerTank = playerTank;
             Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            Ground.setAmmo(playerTank.AmmoAmount);
         }
 
         public void Move(Key key)
@@ -73,6 +74,35 @@ namespace TankMaze.Controllers
                 playerTank.SetColumn(goColumn);
             }
             playerTank.Source(goDirection);
+            for (int checkRow = goRow; checkRow <= goRow + 1; ++checkRow) 
+            {
+                for(int checkColumn = goColumn; checkColumn <= goColumn+1; ++checkColumn)
+                {
+                    if (CollisionDetector.CrashCheck(checkRow, checkColumn))
+                    {
+                        Bomb bomb = (Bomb)ObjectPool.getObject(ObjectPool.Type.Bomb, checkRow, checkColumn);
+                        if (bomb != null && bomb.state.getState())
+                        {
+                            // to be implemented
+                        }
+                        Gold gold = (Gold)ObjectPool.getObject(ObjectPool.Type.Gold, checkRow, checkColumn);
+                        if (gold != null && gold.state.getState())
+                        {
+                            Ground.increaseScore(Gold.Value);
+                            gold.RemoveComponent(ObjectPool.Type.Gold);
+                        }
+                        Ammo ammo = (Ammo)ObjectPool.getObject(ObjectPool.Type.Ammo, checkRow, checkColumn);
+                        if (ammo != null && ammo.state.getState()) 
+                        {
+                            playerTank.AmmoAmount += Ammo.Value;
+                            Ground.setAmmo(playerTank.AmmoAmount);
+                            ammo.RemoveComponent(ObjectPool.Type.Ammo);
+                        }
+                    }
+                    if (goDirection == SingeltonComponent.Direction.Up || goDirection == SingeltonComponent.Direction.Down) break;
+                }
+                if (goDirection == SingeltonComponent.Direction.Left || goDirection == SingeltonComponent.Direction.Right) break;
+            }
             CameraController.Move(key);
         }
 
@@ -94,7 +124,12 @@ namespace TankMaze.Controllers
                 if (playerTank.direction == SingeltonComponent.Direction.Left) fireColumn = playerTank.GetColumn() - 1;
                 else if (playerTank.direction == SingeltonComponent.Direction.Right) fireColumn = playerTank.GetColumn() + 2;
             }
-            MazeFactory.createObject(ObjectPool.Type.Bullet, fireRow, fireColumn, direction);
+            if (playerTank.AmmoAmount > 0) 
+            {
+                MazeFactory.createObject(ObjectPool.Type.Bullet, fireRow, fireColumn, direction);
+                playerTank.AmmoAmount--;
+                Ground.setAmmo(playerTank.AmmoAmount); 
+            }
         }
     }
 }
