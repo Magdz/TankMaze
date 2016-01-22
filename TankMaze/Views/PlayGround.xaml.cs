@@ -41,7 +41,7 @@ namespace TankMaze.Views
         public void nextLevelScreen()
         {
             increaseLevel();
-            TheGround.Opacity = 0.3;
+            TheGround.Opacity = 0.4;
             LevelUpGrid.Visibility = Visibility.Visible;
             NextLevelContinueButton.IsReadOnly = true;
             NextLevelContinueButton.Focus();

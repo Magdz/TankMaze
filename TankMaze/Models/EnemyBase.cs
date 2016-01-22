@@ -7,8 +7,10 @@ namespace TankMaze.Models
     class EnemyBase : SingeltonComponent
     {
         //int ID = 2;
+
         private BitmapImage Base = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyBase.png", UriKind.Absolute));
-        
+        private BitmapImage DestroyedBase = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyBaseDestroyed.png", UriKind.Absolute));
+
         public EnemyBase(int Row, int Column, Direction direction) : base(Row, Column)
         {
             if (theEnemyBase != null) return;
@@ -20,7 +22,8 @@ namespace TankMaze.Models
 
         public new void Source(Direction direction)
         {
-            theComponent.Source = Base;
+            if (direction != Direction.Special) theComponent.Source = Base;
+            else theComponent.Source = DestroyedBase;
         }
 
     }

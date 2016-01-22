@@ -55,7 +55,8 @@ namespace TankMaze.Controllers
                             EnemyBase enemyBase = (EnemyBase)ObjectPool.getObject(ObjectPool.Type.EnemyBase, 0);
                             if (enemyBase.state.getState())
                             {
-                                enemyBase.RemoveComponent(ObjectPool.Type.EnemyBase);
+                                enemyBase.Source(SingeltonComponent.Direction.Special);
+                                //enemyBase.RemoveComponent(ObjectPool.Type.EnemyBase);
                                 Thread.Sleep(1000);
                                 Ground.nextLevelScreen();
                             }

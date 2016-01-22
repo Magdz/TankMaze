@@ -115,7 +115,7 @@ namespace TankMaze.Controllers
                         case 2:
                             try
                             {
-                                MazeFactory.createObject(ObjectPool.Type.EnemyBase, row, column, MazeComponent.Direction.Special);
+                                MazeFactory.createObject(ObjectPool.Type.EnemyBase, row, column, MazeComponent.Direction.Left);
                             }catch(Exception) { }
                             column += 4;
                             break;
