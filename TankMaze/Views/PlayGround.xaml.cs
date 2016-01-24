@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -64,7 +67,7 @@ namespace TankMaze.Views
         }
         public void deathMenu()
         {
-            TheGround.Opacity = 0.4;
+            GameOverMenu.Background.Opacity = 0.6;
             GameOverMenu.Visibility = Visibility.Visible;
             GameOverStartButton.IsReadOnly = true;
             GameOverStartButton.Focus();
@@ -78,8 +81,10 @@ namespace TankMaze.Views
             PauseMenu.Visibility = Visibility.Visible;
             ContinueButton.IsReadOnly = true;
             ContinueButton.Focus();
-            OptionsButton.Opacity = 0.5;
-            OptionsButton.IsReadOnly = true;
+            LoadMazeButton.Opacity = 0.5;
+            LoadMazeButton.IsReadOnly = true;
+            SaveMazeButton.Opacity = 0.5;
+            SaveMazeButton.IsReadOnly = true;
             ExitButton.Opacity = 0.5;
             ExitButton.IsReadOnly = true;
         }
@@ -114,7 +119,37 @@ namespace TankMaze.Views
         {
             return Int32.Parse(AmmoValue.Content.ToString());
         }
-
+        private void loadMaze()
+        {
+            OpenFileDialog loadFileDialog = new OpenFileDialog();
+            loadFileDialog.Filter = "TankMaze Save File (*.tms)|*.tms";
+            loadFileDialog.ShowDialog();
+            BinaryFormatter formatter = new BinaryFormatter();
+            if (loadFileDialog.FileName.Length>0)
+            {
+                using (FileStream stream = new FileStream(loadFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    int[,] inputFile = (int[,])formatter.Deserialize(stream);
+                    MazeGenerator.Maze = inputFile;
+                }
+            }
+            LoadMazeButton.Focus();
+        }
+        private void saveMaze()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "TankMaze Save File (*.tms)|*.tms";
+            saveFileDialog.ShowDialog();
+            BinaryFormatter formatter = new BinaryFormatter();
+            if (saveFileDialog.FileName.Length>0)
+            {
+                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    formatter.Serialize(stream, MazeGenerator.Maze);
+                }
+            }
+            SaveMazeButton.Focus();
+        }
         private void ContinueButton_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter || e.Key == Key.P)
@@ -123,8 +158,8 @@ namespace TankMaze.Views
             }
             else if (e.Key == Key.S)
             {
-                OptionsButton.Opacity = 1;
-                OptionsButton.Focus();
+                LoadMazeButton.Opacity = 1;
+                LoadMazeButton.Focus();
                 ContinueButton.Opacity = 0.5;
             }
             else if (e.Key == Key.Tab)
@@ -132,28 +167,56 @@ namespace TankMaze.Views
                 ContinueButton.Focus();
             }
         }
-
-        private void OptionsButton_KeyDown(object sender, KeyEventArgs e)
+        private void LoadMazeButton_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                //To be implemented
+                loadMaze();
             }
             else if (e.Key == Key.W)
             {
                 ContinueButton.Opacity = 1;
                 ContinueButton.Focus();
-                OptionsButton.Opacity = 0.5;
+                LoadMazeButton.Opacity = 0.5;
+            }
+            else if (e.Key == Key.S)
+            {
+                SaveMazeButton.Opacity = 1;
+                SaveMazeButton.Focus();
+                LoadMazeButton.Opacity = 0.5;
+            }
+            else if (e.Key == Key.Tab)
+            {
+                LoadMazeButton.Focus();
+            }
+            else if (e.Key == Key.P)
+            {
+                resumeGame();
+            }
+
+        }
+
+        private void SaveMazeButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                saveMaze();
+            }
+            else if (e.Key == Key.W)
+            {
+                LoadMazeButton.Opacity = 1;
+                LoadMazeButton.Focus();
+                SaveMazeButton.Opacity = 0.5;
             }
             else if (e.Key == Key.S)
             {
                 ExitButton.Opacity = 1;
                 ExitButton.Focus();
-                OptionsButton.Opacity = 0.5;
+                SaveMazeButton.Opacity = 0.5;
             }
             else if (e.Key == Key.Tab)
             {
-                OptionsButton.Focus();
+                SaveMazeButton.Focus();
             }
             else if (e.Key == Key.P)
             {
@@ -169,8 +232,8 @@ namespace TankMaze.Views
             }
             else if (e.Key == Key.W)
             {
-                OptionsButton.Opacity = 1;
-                OptionsButton.Focus();
+                SaveMazeButton.Opacity = 1;
+                SaveMazeButton.Focus();
                 ExitButton.Opacity = 0.5;
             }
             else if (e.Key == Key.Tab)

@@ -124,24 +124,29 @@
             </Grid.ColumnDefinitions>
 
         </Grid>
-        <Grid x:Name="PauseMenu" Height="731" Width="1526" Focusable="True" Visibility="Hidden">
+        <Grid x:Name="PauseMenu" Height="731" Width="1526" Focusable="True">
             <Image x:Name="TankMazeLogo" HorizontalAlignment="Left" Height="248" Margin="167,30,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
             <TextBox x:Name="ContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="ContinueButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ContinueButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="ExitButton" HorizontalAlignment="Left" Height="77" Margin="524,612,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" BorderBrush="{x:Null}" SpellCheck.IsEnabled="True" Cursor="Arrow" TabIndex="2147483647" IsTabStop="False" AllowDrop="False" IsHitTestVisible="False" SelectionBrush="{x:Null}" BorderThickness="0" KeyDown="ExitButton_KeyDown">
+            <TextBox x:Name="ExitButton" HorizontalAlignment="Left" Height="77" Margin="524,644,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" BorderBrush="{x:Null}" SpellCheck.IsEnabled="True" Cursor="Arrow" TabIndex="2147483647" IsTabStop="False" AllowDrop="False" IsHitTestVisible="False" SelectionBrush="{x:Null}" BorderThickness="0" KeyDown="ExitButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ExitButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="OptionsButton" HorizontalAlignment="Left" Height="77" Margin="524,507,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="OptionsButton_KeyDown">
+            <TextBox x:Name="LoadMazeButton" HorizontalAlignment="Left" Height="77" Margin="524,479,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="LoadMazeButton_KeyDown">
                 <TextBox.Background>
-                    <ImageBrush ImageSource="/TankMaze;component/Assets/OptionsButton.png"/>
+                    <ImageBrush ImageSource="/TankMaze;component/Assets/LoadMazeButton.png"/>
                 </TextBox.Background>
             </TextBox>
             <Image x:Name="GamePauseAlertImage" HorizontalAlignment="Left" Height="120" Margin="474,246,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/GamePauseAlert.png"/>
+            <TextBox x:Name="SaveMazeButton" HorizontalAlignment="Left" Height="77" Margin="524,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="SaveMazeButton_KeyDown">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/TankMaze;component/Assets/SaveMazeButton.png"/>
+                </TextBox.Background>
+            </TextBox>
         </Grid>
         <Image x:Name="ScorePanel" Height="108" Canvas.Left="1021" Canvas.Top="-37" Width="190" Source="/TankMaze;component/Assets/ScorePanel.png" Opacity="0.7"/>
         <Label x:Name="ScoreValue" Content="0" Canvas.Left="1030" Canvas.Top="12" FontFamily="Minecrafter Alt" Opacity="0.7" FlowDirection="RightToLeft" FontSize="10.667" HorizontalContentAlignment="Center" Width="38" Padding="0,5"/>
