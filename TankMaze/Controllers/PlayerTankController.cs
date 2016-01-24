@@ -84,7 +84,7 @@ namespace TankMaze.Controllers
                         Bomb bomb = (Bomb)ObjectPool.getObject(ObjectPool.Type.Bomb, checkRow, checkColumn);
                         if (bomb != null && bomb.state.getState())
                         {
-                            // to be implemented
+                            Ground.deathMenu();
                         }
                         Gold gold = (Gold)ObjectPool.getObject(ObjectPool.Type.Gold, checkRow, checkColumn);
                         if (gold != null && gold.state.getState())
