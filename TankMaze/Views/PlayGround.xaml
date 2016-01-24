@@ -125,45 +125,62 @@
 
         </Grid>
         <Grid x:Name="PauseMenu" Height="731" Width="1526" Focusable="True" Visibility="Hidden">
-            <Image x:Name="image" HorizontalAlignment="Left" Height="248" Margin="167,48,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
-            <TextBox x:Name="ContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="ContinueButton_KeyDown">
+            <Image x:Name="TankMazeLogo" HorizontalAlignment="Left" Height="248" Margin="167,30,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
+            <TextBox x:Name="ContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="ContinueButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ContinueButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="ExitButton" HorizontalAlignment="Left" Height="77" Margin="524,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" BorderBrush="{x:Null}" SpellCheck.IsEnabled="True" Cursor="Arrow" TabIndex="2147483647" IsTabStop="False" AllowDrop="False" IsHitTestVisible="False" SelectionBrush="{x:Null}" BorderThickness="0" KeyDown="ExitButton_KeyDown">
+            <TextBox x:Name="ExitButton" HorizontalAlignment="Left" Height="77" Margin="524,612,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" BorderBrush="{x:Null}" SpellCheck.IsEnabled="True" Cursor="Arrow" TabIndex="2147483647" IsTabStop="False" AllowDrop="False" IsHitTestVisible="False" SelectionBrush="{x:Null}" BorderThickness="0" KeyDown="ExitButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ExitButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="OptionsButton" HorizontalAlignment="Left" Height="77" Margin="524,525,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="OptionsButton_KeyDown">
+            <TextBox x:Name="OptionsButton" HorizontalAlignment="Left" Height="77" Margin="524,507,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="OptionsButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/OptionsButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <Image x:Name="GamePauseAlertImage" HorizontalAlignment="Left" Height="120" Margin="488,264,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/GamePauseAlert.png"/>
-            <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="248" Margin="167,48,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
+            <Image x:Name="GamePauseAlertImage" HorizontalAlignment="Left" Height="120" Margin="474,246,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/GamePauseAlert.png"/>
         </Grid>
         <Image x:Name="ScorePanel" Height="108" Canvas.Left="1021" Canvas.Top="-37" Width="190" Source="/TankMaze;component/Assets/ScorePanel.png" Opacity="0.7"/>
         <Label x:Name="ScoreValue" Content="150" Canvas.Left="1030" Canvas.Top="12" FontFamily="Minecrafter Alt" Opacity="0.7" FlowDirection="RightToLeft" FontSize="10.667" HorizontalContentAlignment="Center" Width="38" Padding="0,5"/>
         <Label x:Name="LevelValue" Content="25" Canvas.Left="1164" Canvas.Top="12" FontFamily="Minecrafter Alt" FontSize="10.667" Opacity="0.7" FlowDirection="RightToLeft" RenderTransformOrigin="3.36,0.619" HorizontalContentAlignment="Center" Width="36" Padding="0,5"/>
         <Grid x:Name="LevelUpGrid" Height="731" Width="1526" Focusable="True" Visibility="Hidden">
-            <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="248" Margin="167,48,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
-            <Image x:Name="LevelUpAlertImage" HorizontalAlignment="Left" Height="120" Margin="479,271,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/LeveledUp.png"/>
-            <TextBox x:Name="NextLevelContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,548,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="NextLevelContinueButton_KeyDown">
+            <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="248" Margin="167,30,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
+            <Image x:Name="LevelUpAlertImage" HorizontalAlignment="Left" Height="120" Margin="467,253,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/LeveledUp.png"/>
+            <TextBox x:Name="NextLevelContinueButton" HorizontalAlignment="Left" Height="77" Margin="524,530,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="NextLevelContinueButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ContinueButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="NextLevelExitButton" HorizontalAlignment="Left" Height="77" Margin="524,658,0,-4" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="NextLevelExitButton_KeyDown">
+            <TextBox x:Name="NextLevelExitButton" HorizontalAlignment="Left" Height="77" Margin="524,640,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="NextLevelExitButton_KeyDown">
                 <TextBox.Background>
                     <ImageBrush ImageSource="/TankMaze;component/Assets/ExitButton.png"/>
                 </TextBox.Background>
             </TextBox>
-            <Image x:Name="NewLevelDeclarationImage" HorizontalAlignment="Left" Height="120" Margin="497,396,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/NewLevelPanel.png"/>
-            <Label x:Name="NewLevelValue" Content="1" HorizontalAlignment="Left" Margin="864,424,0,0" VerticalAlignment="Top" FontFamily="Minecrafter Alt" FontSize="53.333" Foreground="White" Background="{x:Null}" Opacity="0.8" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Width="57" Height="60"/>
+            <Image x:Name="NewLevelDeclarationImage" HorizontalAlignment="Left" Height="120" Margin="493,378,0,0" VerticalAlignment="Top" Width="479" Source="/TankMaze;component/Assets/NewLevelPanel.png"/>
+            <Label x:Name="NewLevelValue" Content="1" HorizontalAlignment="Left" Margin="860,406,0,0" VerticalAlignment="Top" FontFamily="Minecrafter Alt" FontSize="53.333" Foreground="White" Background="{x:Null}" Opacity="0.8" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Width="57" Height="60"/>
 
         </Grid>
         <Label x:Name="AmmoValue" Content="25" Canvas.Left="1097" Canvas.Top="12" FontFamily="Minecrafter Alt" FontSize="10.667" Opacity="0.7" FlowDirection="RightToLeft" RenderTransformOrigin="3.36,0.619" Width="34" Padding="0,5" HorizontalContentAlignment="Center"/>
+        <Grid x:Name="GameOverMenu" Height="1024" Width="2048" Focusable="True" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/TankMaze;component/Assets/GameOverBackground.png"/>
+            </Grid.Background>
+            <Image x:Name="TankMazeLogo3" HorizontalAlignment="Left" Height="248" Margin="167,30,0,0" VerticalAlignment="Top" Width="1000" Source="/TankMaze;component/Assets/TankMazeLogo.png"/>
+            <Image x:Name="GameOverAlertImage" HorizontalAlignment="Left" Height="100" Margin="409,320,0,0" VerticalAlignment="Top" Width="583" Source="/TankMaze;component/Assets/GameOverAlert.png"/>
+            <TextBox x:Name="GameOverStartButton" HorizontalAlignment="Left" Height="78" Margin="524,484,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="GameOverStartButton_KeyDown">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/TankMaze;component/Assets/StartOver.png"/>
+                </TextBox.Background>
+            </TextBox>
+            <TextBox x:Name="GameOverExitButton" HorizontalAlignment="Left" Height="78" Margin="524,602,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Cursor="Arrow" BorderBrush="{x:Null}" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" SelectionBrush="{x:Null}" SelectionOpacity="1" BorderThickness="0" KeyDown="GameOverExitButton_KeyDown">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/TankMaze;component/Assets/ExitButton.png"/>
+                </TextBox.Background>
+            </TextBox>
+
+        </Grid>
     </Canvas>
 </Page>

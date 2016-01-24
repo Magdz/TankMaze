@@ -237,6 +237,13 @@
   <ItemGroup>
     <Resource Include="Assets\EnemyBaseDestroyed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GameOverAlert.png" />
+    <Resource Include="Assets\StartOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GameOverBackground.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

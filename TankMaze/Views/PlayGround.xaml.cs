@@ -48,7 +48,15 @@ namespace TankMaze.Views
             NextLevelExitButton.Opacity = 0.5;
             NextLevelExitButton.IsReadOnly = true;
         }
-
+        public void deathMenu()
+        {
+            TheGround.Opacity = 0.4;
+            GameOverMenu.Visibility = Visibility.Visible;
+            GameOverStartButton.IsReadOnly = true;
+            GameOverStartButton.Focus();
+            GameOverExitButton.Opacity = 0.5;
+            GameOverExitButton.IsReadOnly = true;
+        }
         private void pauseGame()
         {
             gamePaused = !gamePaused;
@@ -197,5 +205,40 @@ namespace TankMaze.Views
             }
         }
 
+        private void GameOverStartButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+               //To be implemented
+            }
+            else if (e.Key == Key.S)
+            {
+                GameOverExitButton.Opacity = 1;
+                GameOverExitButton.Focus();
+                GameOverStartButton.Opacity = 0.5;
+            }
+            else if (e.Key == Key.Tab)
+            {
+                GameOverExitButton.Focus();
+            }
+        }
+
+        private void GameOverExitButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Application.Current.Shutdown();
+            }
+            else if (e.Key == Key.W)
+            {
+                GameOverStartButton.Opacity = 1;
+                GameOverStartButton.Focus();
+                GameOverExitButton.Opacity = 0.5;
+            }
+            else if (e.Key == Key.Tab)
+            {
+                GameOverExitButton.Focus();
+            }
+        }
     }
 }
