@@ -34,7 +34,7 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Enter)
             {
-                PlayGroundWindow._NavigationFrame.Navigate(new PlayGround());
+                PlayGroundWindow._NavigationFrame.Navigate(new PlayGround(PlayGroundWindow));
             }
             else if(e.Key == Key.S)
             {

@@ -13,19 +13,33 @@ namespace TankMaze.Views
     /// </summary>
     public partial class PlayGround : Page
     {
+        MainWindow PlayGroundWindow;
         PlayerTankController playerController;
         bool gamePaused = false;
         int scorePanelTemp;
-        public PlayGround()
+        public static int LevelNum = 1;
+        
+        public PlayGround(MainWindow PlayGroundWindow)
         {
             InitializeComponent();
+            this.PlayGroundWindow = PlayGroundWindow;
+            LevelValue.Content = LevelNum.ToString();
             PauseMenu.Visibility = Visibility.Hidden;
+            GameOverMenu.Visibility = Visibility.Hidden;
+            TheGround.Opacity = 1;
             TheGround.Focus();
             ObjectPool.addObject(ObjectPool.Type.PlayGround, this);
             MazeGenerator.Generate();
             playerController = (PlayerTankController)ObjectPool.getObject(ObjectPool.Type.PlayerTankController, 0);
-            ScoreValue.Content = "0";
-            LevelValue.Content = "1";
+            CameraController.InitializeCamera();
+        }
+
+        public void GenerateLevel()
+        {
+            LevelNum = int.Parse(LevelValue.Content.ToString());
+            ObjectPool.Clear();
+            TheGround.Children.Clear();
+            PlayGroundWindow._NavigationFrame.Navigate(new PlayGround(PlayGroundWindow));
         }
 
         private void TheGround_KeyDown(object sender, KeyEventArgs e1)
@@ -34,7 +48,6 @@ namespace TankMaze.Views
             else if (!gamePaused)
             {
                 if (e1.Key == Key.X) playerController.Fire();
-                    
                 else playerController.Move(e1.Key);
             }
         }
@@ -174,7 +187,7 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Enter)
             {
-                //To be implemented
+                GenerateLevel();
             }
             else if (e.Key == Key.S)
             {
@@ -210,7 +223,7 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Enter)
             {
-               //To be implemented
+                GenerateLevel();
             }
             else if (e.Key == Key.S)
             {

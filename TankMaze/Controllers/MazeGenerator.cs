@@ -25,7 +25,7 @@ namespace TankMaze.Controllers
             OnPathGeneration(300, 400, 5); // Bombs ID = 5
             OnPathGeneration(300, 400, 7); // Ammo ID = 7
             OnPathGeneration(300, 600, 8); // Gold ID = 8
-            console();
+            //console();
             Build();
         }
 

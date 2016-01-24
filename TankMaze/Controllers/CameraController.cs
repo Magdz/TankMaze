@@ -39,5 +39,15 @@ namespace TankMaze.Controllers
             Canvas.SetTop(Ground.TheGround, Top);
             Canvas.SetLeft(Ground.TheGround, Left);
         }
+
+        public static void InitializeCamera()
+        {
+            Top = 0;
+            Left = 0;
+            Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            playerTank = (PlayerTank)ObjectPool.getObject(ObjectPool.Type.PlayerTank, 0);
+            Canvas.SetTop(Ground.TheGround, Top);
+            Canvas.SetLeft(Ground.TheGround, Left);
+    }
     }
 }
