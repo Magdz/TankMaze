@@ -83,6 +83,11 @@
     <Compile Include="Observer\Mediator.cs" />
     <Compile Include="Observer\Observer.cs" />
     <Compile Include="Observer\Subject.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Singleton\Singleton.cs" />
     <Compile Include="State\Existent.cs" />
     <Compile Include="State\Nonexistent.cs" />
@@ -118,11 +123,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -195,7 +195,7 @@
     <Resource Include="Assets\WindowIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Audio\" />
+    <None Include="Resources\BulletSound.wav" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\EnemyBase.png" />
@@ -243,6 +243,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\GameOverBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AmmoPick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CoinPick.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

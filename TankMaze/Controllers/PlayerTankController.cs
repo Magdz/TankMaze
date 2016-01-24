@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Threading;
+using System.Windows.Input;
 using TankMaze.Factory;
 using TankMaze.Models;
 using TankMaze.Object_Pool;
@@ -88,6 +89,7 @@ namespace TankMaze.Controllers
                         Gold gold = (Gold)ObjectPool.getObject(ObjectPool.Type.Gold, checkRow, checkColumn);
                         if (gold != null && gold.state.getState())
                         {
+                            AudioController.playCoinSound();
                             Ground.increaseScore(Gold.Value);
                             gold.RemoveComponent(ObjectPool.Type.Gold);
                         }
@@ -97,6 +99,7 @@ namespace TankMaze.Controllers
                             playerTank.AmmoAmount += Ammo.Value;
                             Ground.setAmmo(playerTank.AmmoAmount);
                             ammo.RemoveComponent(ObjectPool.Type.Ammo);
+                            AudioController.playAmmoSound();
                         }
                     }
                     if (goDirection == SingeltonComponent.Direction.Up || goDirection == SingeltonComponent.Direction.Down) break;
@@ -111,7 +114,6 @@ namespace TankMaze.Controllers
             int fireRow = playerTank.GetRow();
             int fireColumn = playerTank.GetColumn();
             MazeComponent.Direction direction = (MazeComponent.Direction)playerTank.direction;
-
             if (playerTank.direction == SingeltonComponent.Direction.Up || playerTank.direction == SingeltonComponent.Direction.Down)
             {
                 if (playerTank.GetRow() == 0 || playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 2 || playerTank.GetRow() == Ground.TheGround.RowDefinitions.Count - 1) return;
@@ -128,7 +130,8 @@ namespace TankMaze.Controllers
             {
                 MazeFactory.createObject(ObjectPool.Type.Bullet, fireRow, fireColumn, direction);
                 playerTank.AmmoAmount--;
-                Ground.setAmmo(playerTank.AmmoAmount); 
+                Ground.setAmmo(playerTank.AmmoAmount);
+               AudioController.playBulletSound();
             }
         }
     }

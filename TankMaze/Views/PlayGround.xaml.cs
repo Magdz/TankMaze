@@ -34,6 +34,7 @@ namespace TankMaze.Views
             else if (!gamePaused)
             {
                 if (e1.Key == Key.X) playerController.Fire();
+                    
                 else playerController.Move(e1.Key);
             }
         }

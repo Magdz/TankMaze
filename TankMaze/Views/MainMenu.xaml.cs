@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using TankMaze.Controllers;
@@ -33,7 +34,6 @@ namespace TankMaze.Views
         {
             if (e.Key == Key.Enter)
             {
-                AudioController.startAudio();
                 PlayGroundWindow._NavigationFrame.Navigate(new PlayGround());
             }
             else if(e.Key == Key.S)
