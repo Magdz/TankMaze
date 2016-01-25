@@ -3,7 +3,6 @@ using System.Threading;
 using TankMaze.Models;
 using TankMaze.Object_Pool;
 using TankMaze.Views;
-using TankMaze.State;
 
 namespace TankMaze.Controllers
 {
@@ -22,10 +21,11 @@ namespace TankMaze.Controllers
             bulletThread.Start();
         }
 
-        public void Move()
+        private void Move()
         {
             PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
             bool run = true;
+
             theBullet.Dispatcher.Invoke(() =>
             {
                 while (run)

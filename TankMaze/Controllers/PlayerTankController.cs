@@ -44,7 +44,7 @@ namespace TankMaze.Controllers
             }
             else if (key == Key.A)
             {
-                if (playerTank.GetColumn() == 0) return;
+                if (goColumn == 0) return;
                 goColumn--;
                 if (goDirection == SingeltonComponent.Direction.Down) goRow++;
                 else if (goDirection == SingeltonComponent.Direction.Right) goColumn++;
@@ -52,8 +52,8 @@ namespace TankMaze.Controllers
             }
             else if (key == Key.D)
             {
-                if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 2 && goDirection == SingeltonComponent.Direction.Right) return;
-                else if (playerTank.GetColumn() == Ground.TheGround.ColumnDefinitions.Count - 1) return;
+                if (goColumn == Ground.TheGround.ColumnDefinitions.Count - 2 && goDirection == SingeltonComponent.Direction.Right) return;
+                else if (goColumn == Ground.TheGround.ColumnDefinitions.Count - 1) return;
                 goColumn++;
                 if (goDirection != SingeltonComponent.Direction.Right) goColumn--;
                 if (goDirection == SingeltonComponent.Direction.Down) goRow++;
@@ -102,6 +102,10 @@ namespace TankMaze.Controllers
                             AudioController.playAmmoSound();
                         }
                     }
+                    else if (CollisionDetector.EnemyTankCheck(checkRow, checkColumn))
+                    {
+                        Ground.deathMenu();
+                    }
                     if (goDirection == SingeltonComponent.Direction.Up || goDirection == SingeltonComponent.Direction.Down) break;
                 }
                 if (goDirection == SingeltonComponent.Direction.Left || goDirection == SingeltonComponent.Direction.Right) break;
@@ -131,7 +135,7 @@ namespace TankMaze.Controllers
                 MazeFactory.createObject(ObjectPool.Type.Bullet, fireRow, fireColumn, direction);
                 playerTank.AmmoAmount--;
                 Ground.setAmmo(playerTank.AmmoAmount);
-               AudioController.playBulletSound();
+                AudioController.playBulletSound();
             }
         }
     }

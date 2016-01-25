@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using TankMaze.Controllers;
 
 namespace TankMaze.Models
 {
@@ -11,11 +12,13 @@ namespace TankMaze.Models
         private BitmapImage DownImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyDown.png", UriKind.Absolute));
         private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyRight.png", UriKind.Absolute));
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyLeft.png", UriKind.Absolute));
-        private MazeComponent.Direction direction;
+        private Direction direction;
+        private EnemyTankAI enemyTankAI;
 
         public EnemyTank(int Row, int Column, Direction direction) : base(Row, Column)
         {
             Source(direction);
+            enemyTankAI = new EnemyTankAI(this);
         }
         
         public override void Source(Direction direction)

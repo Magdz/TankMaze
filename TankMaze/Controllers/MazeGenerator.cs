@@ -25,6 +25,7 @@ namespace TankMaze.Controllers
             OnPathGeneration(300, 400, 5); // Bombs ID = 5
             OnPathGeneration(300, 400, 7); // Ammo ID = 7
             OnPathGeneration(300, 600, 8); // Gold ID = 8
+            GenerateEnemyTanks(1, 5);
             //console();
             Build();
         }
@@ -89,6 +90,22 @@ namespace TankMaze.Controllers
             }
         }
 
+        private static void GenerateEnemyTanks(int range1, int range2)
+        {
+            int length = random.Next(range1, range2);
+            List<int> Rows = RandomNumbers(length, Ground.TheGround.RowDefinitions.Count - 1);
+            List<int> Columns = RandomNumbers(length, Ground.TheGround.ColumnDefinitions.Count - 1);
+            for (int i = 0; i < length; ++i)
+            {
+                if (Maze[Rows[i], Columns[i]] == -1 || Maze[Rows[i], Columns[i]] == 0)
+                {
+                    Maze[Rows[i], Columns[i]] = 9;
+                    if (random.Next(0, 1) == 0) Maze[Rows[i] + 1, Columns[i]] = -9;
+                    else Maze[Rows[i], Columns[i] + 1] = -9;
+                }
+            }
+        }
+
         private static void Build()
         {
             for(int row = 0; row < Ground.TheGround.RowDefinitions.Count; ++row)
@@ -135,7 +152,8 @@ namespace TankMaze.Controllers
                             MazeFactory.createObject(ObjectPool.Type.Gold, row, column, MazeComponent.Direction.Special);
                             break;
                         case 9:
-                            MazeFactory.createObject(ObjectPool.Type.EnemyTank, row, column, MazeComponent.Direction.Left);
+                            if (Maze[row + 1, column] == -9) MazeFactory.createObject(ObjectPool.Type.EnemyTank, row, column, MazeComponent.Direction.Down);
+                            else MazeFactory.createObject(ObjectPool.Type.EnemyTank, row, column, MazeComponent.Direction.Left);
                             break;
                         default:
                             break;
