@@ -53,11 +53,11 @@ namespace TankMaze.Controllers
             return false;
         }
 
-        public static bool EnemyTankCheck(int Row ,int Column)
+        public static bool EnemyTankCheck(int Row, int Column)
         {
-            for (int i = 0; i < Mediator.EnemyTankObservers.Count; i++) 
+            for (int i = 0; i < Mediator.EnemyTankObservers.Count; i++)
             {
-                if(Row == Mediator.EnemyTankObservers[i].Row && Column == Mediator.EnemyTankObservers[i].Column)
+                if (Row == Mediator.EnemyTankObservers[i].Row && Column == Mediator.EnemyTankObservers[i].Column)
                 {
                     return true;
                 }
@@ -78,5 +78,30 @@ namespace TankMaze.Controllers
             }
             return false;
         }
+    
+    public static bool PlayerTankCheck(int Row, int Column)
+        {
+            if (Row == Mediator.PlayerTankObserver.Row && Column == Mediator.PlayerTankObserver.Column)
+            {
+                return true;
+            }
+            if (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Up || (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Down))
+            {
+                if (Row == Mediator.PlayerTankObserver.Row + 1)
+                {
+                    return true;
+                }
+            }
+            else if (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Right || (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Left))
+            {
+                if (Column == Mediator.PlayerTankObserver.Column + 1)
+                {
+                    return true;
+                }
+            }
+        return false;
     }
+       
+    }
+}
 }
