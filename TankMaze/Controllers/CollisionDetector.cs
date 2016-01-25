@@ -79,7 +79,7 @@ namespace TankMaze.Controllers
             return false;
         }
     
-    public static bool PlayerTankCheck(int Row, int Column)
+        public static bool PlayerTankCheck(int Row, int Column)
         {
             if (Row == Mediator.PlayerTankObserver.Row && Column == Mediator.PlayerTankObserver.Column)
             {
@@ -99,9 +99,8 @@ namespace TankMaze.Controllers
                     return true;
                 }
             }
-        return false;
-    }
+            return false;
+        }
        
     }
-}
 }
