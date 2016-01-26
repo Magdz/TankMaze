@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using TankMaze.Models;
 using TankMaze.Object_Pool;
@@ -9,7 +10,7 @@ namespace TankMaze.Controllers
     class EnemyTankAI
     {
         private EnemyTank theEnemyTank;
-        private MazeComponent.Direction[] directions = { MazeComponent.Direction.Down, MazeComponent.Direction.Left, MazeComponent.Direction.Right, MazeComponent.Direction.Up };
+        private List<MazeComponent.Direction> directions;
         private System.Timers.Timer timer;
 
         public EnemyTankAI(EnemyTank theEnemyTank)
@@ -24,7 +25,12 @@ namespace TankMaze.Controllers
         private void Move()
         {
             PlayGround Ground = (PlayGround)ObjectPool.getObject(ObjectPool.Type.PlayGround, 0);
+            directions = new List<MazeComponent.Direction>();
+            directions.Add(MazeComponent.Direction.Down); directions.Add(MazeComponent.Direction.Left); directions.Add(MazeComponent.Direction.Right); directions.Add(MazeComponent.Direction.Up);
             Random randomDirection = new Random();
+            MazeComponent.Direction goDirection;
+            MazeComponent.Direction CurrentDirection = theEnemyTank.direction;
+            directions.Add(CurrentDirection);
             bool run = true;
 
             theEnemyTank.Dispatcher.Invoke(() =>
@@ -33,56 +39,65 @@ namespace TankMaze.Controllers
                 {
                     int goRow = theEnemyTank.GetRow();
                     int goColumn = theEnemyTank.GetColumn();
-                    MazeComponent.Direction goDirection = directions[randomDirection.Next(0, 3)];
+                    try
+                    {
+                        goDirection = directions[randomDirection.Next(0, directions.Count - 1)];
+                    }
+                    catch (Exception) { break; }
                     try
                     {
                         if (goDirection == MazeComponent.Direction.Up)
                         {
-                            if (goRow == 0) continue;
+                            if (goRow == 0) throw new OperationCanceledException();
                             goRow--;
-                            if (goDirection == MazeComponent.Direction.Down) goRow++;
-                            else if (goDirection == MazeComponent.Direction.Right) goColumn++;
+                            if (CurrentDirection == MazeComponent.Direction.Down) goRow++;
+                            else if (CurrentDirection == MazeComponent.Direction.Right) goColumn++;
                         }
                         else if (goDirection == MazeComponent.Direction.Down)
                         {
-                            if (goRow == Ground.TheGround.RowDefinitions.Count - 2 && goDirection == MazeComponent.Direction.Down) continue;
-                            else if (goRow == Ground.TheGround.RowDefinitions.Count - 1) continue;
+                            if (goRow == Ground.TheGround.RowDefinitions.Count - 2 && goDirection == MazeComponent.Direction.Down) throw new OperationCanceledException();
+                            else if (goRow == Ground.TheGround.RowDefinitions.Count - 1) throw new OperationCanceledException();
                             goRow++;
-                            if (goDirection != MazeComponent.Direction.Down) goRow--;
-                            if (goDirection == MazeComponent.Direction.Right) goColumn++;
+                            if (CurrentDirection != MazeComponent.Direction.Down) goRow--;
+                            if (CurrentDirection == MazeComponent.Direction.Right) goColumn++;
                         }
                         else if (goDirection == MazeComponent.Direction.Left)
                         {
-                            if (goColumn == 0) continue;
+                            if (goColumn == 0) throw new OperationCanceledException();
                             goColumn--;
-                            if (goDirection == MazeComponent.Direction.Down) goRow++;
-                            else if (goDirection == MazeComponent.Direction.Right) goColumn++;
+                            if (CurrentDirection == MazeComponent.Direction.Down) goRow++;
+                            else if (CurrentDirection == MazeComponent.Direction.Right) goColumn++;
                         }
                         else if (goDirection == MazeComponent.Direction.Right)
                         {
-                            if (goColumn == Ground.TheGround.ColumnDefinitions.Count - 2 && goDirection == MazeComponent.Direction.Right) continue;
-                            else if (goColumn == Ground.TheGround.ColumnDefinitions.Count - 1) continue;
+                            if (goColumn == Ground.TheGround.ColumnDefinitions.Count - 2 && goDirection == MazeComponent.Direction.Right) throw new OperationCanceledException();
+                            else if (goColumn == Ground.TheGround.ColumnDefinitions.Count - 1) throw new OperationCanceledException();
                             goColumn++;
-                            if (goDirection != MazeComponent.Direction.Right) goColumn--;
-                            if (goDirection == MazeComponent.Direction.Down) goRow++;
+                            if (CurrentDirection != MazeComponent.Direction.Right) goColumn--;
+                            if (CurrentDirection == MazeComponent.Direction.Down) goRow++;
                         }
-                        if (CollisionDetector.WallCheck(goRow, goColumn)) continue;
+                        if (CollisionDetector.WallCheck(goRow, goColumn)) throw new OperationCanceledException();
                         if (goDirection == MazeComponent.Direction.Down || goDirection == MazeComponent.Direction.Up)
                         {
-                            if (CollisionDetector.WallCheck(goRow + 1, goColumn)) continue;
+                            if (CollisionDetector.WallCheck(goRow + 1, goColumn)) throw new OperationCanceledException();
                             theEnemyTank.SetRow(goRow + 1);
                             theEnemyTank.SetColumn(goColumn);
                             theEnemyTank.SetRow(goRow);
                         }
                         else if (goDirection == MazeComponent.Direction.Left || goDirection == MazeComponent.Direction.Right)
                         {
-                            if (CollisionDetector.WallCheck(goRow, goColumn + 1)) continue;
+                            if (CollisionDetector.WallCheck(goRow, goColumn + 1)) throw new OperationCanceledException();
                             theEnemyTank.SetColumn(goColumn + 1);
                             theEnemyTank.SetRow(goRow);
                             theEnemyTank.SetColumn(goColumn);
                         }
                         theEnemyTank.Source(goDirection);
                         throw new Exception();
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        directions.Remove(goDirection);
+                        continue;
                     }
                     catch (Exception)
                     {

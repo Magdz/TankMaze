@@ -12,7 +12,7 @@ namespace TankMaze.Models
         private BitmapImage DownImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyDown.png", UriKind.Absolute));
         private BitmapImage RightImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyRight.png", UriKind.Absolute));
         private BitmapImage LeftImage = new BitmapImage(new Uri("pack://application:,,,/TankMaze;component/Assets/EnemyLeft.png", UriKind.Absolute));
-        private Direction direction;
+        public Direction direction { get; private set; }
         private EnemyTankAI enemyTankAI;
 
         public EnemyTank(int Row, int Column, Direction direction) : base(Row, Column)
