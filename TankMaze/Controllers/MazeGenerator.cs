@@ -28,6 +28,7 @@ namespace TankMaze.Controllers
             GenerateEnemyTanks(1, 20);
             //console();
             Maze[4, 2] = 0;
+            Maze[5, 2] = 0;
             Build();
         }
 
