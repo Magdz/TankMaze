@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="96f4a519-6343-4f4d-ac7a-32e742cc87da"
   name="TankMazeUML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -3433,86 +3433,6 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="d892bd25-848b-4a2b-875f-6186d6d003f9"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="4e658db3-f6b4-4c1d-95bc-aa88983530a9"
-                      LastKnownName="void"
-                      LastKnownLocation="TankMazeUML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="dcdd9f73-515e-4f9b-81d1-a2604e0a5a4a"
-            name="Update"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="bdeb1754-8dde-41bf-ac89-2aeff77e6cc2"
-                  name="v1"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="f11eda67-e2b5-493e-a913-6204c6a385b6"
-                      LastKnownName="int"
-                      LastKnownLocation="TankMazeUML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="7acb5bc0-0d9a-4db7-954b-c16a32cf335d"
-                  name="v2"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="f11eda67-e2b5-493e-a913-6204c6a385b6"
-                      LastKnownName="int"
-                      LastKnownLocation="TankMazeUML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="e10eb8f6-d2c8-4a60-ab96-f5fa174e8cbf"
-                  name="direction"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <enumerationMoniker
-                      Id="aa358b12-59eb-4254-8028-3e0eb3431c1d"
-                      LastKnownName="Direction"
-                      LastKnownLocation="TankMazeUML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="ecbe6677-d3ef-401a-a746-e664f5d5afc4"
-                  name="state"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="5c34ed97-7fd7-42ca-887d-54542a1318e6"
-                      LastKnownName="State"
-                      LastKnownLocation="TankMazeUML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="051e1bf5-f3a6-4d5b-b1a8-25ff8ca9efc1"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>

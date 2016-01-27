@@ -102,10 +102,7 @@ namespace TankMaze.Controllers
                             AudioController.playAmmoSound();
                         }
                     }
-                    else if (CollisionDetector.EnemyTankCheck(checkRow, checkColumn))
-                    {
-                        Ground.deathMenu();
-                    }
+                    if (CollisionDetector.EnemyTankCheck(checkRow, checkColumn)) Ground.deathMenu();
                     if (goDirection == SingeltonComponent.Direction.Up || goDirection == SingeltonComponent.Direction.Down) break;
                 }
                 if (goDirection == SingeltonComponent.Direction.Left || goDirection == SingeltonComponent.Direction.Right) break;

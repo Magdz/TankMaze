@@ -10,6 +10,7 @@ namespace TankMaze.Models
     abstract class MazeComponent : DispatcherObject,Subject
     {
         protected Observer.Observer observer;
+        public Direction direction { get; protected set; }
         protected Image theComponent { get; }
         public State.State state { get; private set; }
 
@@ -74,7 +75,7 @@ namespace TankMaze.Models
         public void Notify()
         {
             if (observer == null) return;
-            observer.Update(GetRow(), GetColumn(), Direction.Special, state);
+            observer.Update(GetRow(), GetColumn(), direction, state);
         }
 
         public Observer.Observer getObserver()

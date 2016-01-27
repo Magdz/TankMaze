@@ -61,16 +61,16 @@ namespace TankMaze.Controllers
                 {
                     return true;
                 }
-                if (Mediator.EnemyTankObservers[i].direction == MazeComponent.Direction.Up || (Mediator.EnemyTankObservers[i].direction == MazeComponent.Direction.Down))
+                if (Mediator.EnemyTankObservers[i].direction == MazeComponent.Direction.Up || Mediator.EnemyTankObservers[i].direction == MazeComponent.Direction.Down)
                 {
-                    if (Row == Mediator.EnemyTankObservers[i].Row + 1)
+                    if (Row == Mediator.EnemyTankObservers[i].Row + 1 && Column == Mediator.EnemyTankObservers[i].Column)
                     {
                         return true;
                     }
                 }
                 else if (Mediator.EnemyTankObservers[i].direction == MazeComponent.Direction.Right || (Mediator.EnemyTankObservers[i].direction == MazeComponent.Direction.Left))
                 {
-                    if (Column == Mediator.EnemyTankObservers[i].Column + 1)
+                    if (Column == Mediator.EnemyTankObservers[i].Column + 1 && Row == Mediator.EnemyTankObservers[i].Row)
                     {
                         return true;
                     }
@@ -87,14 +87,14 @@ namespace TankMaze.Controllers
             }
             if (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Up || (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Down))
             {
-                if (Row == Mediator.PlayerTankObserver.Row + 1)
+                if (Row == Mediator.PlayerTankObserver.Row + 1 && Column == Mediator.PlayerTankObserver.Column)
                 {
                     return true;
                 }
             }
             else if (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Right || (Mediator.PlayerTankObserver.direction == MazeComponent.Direction.Left))
             {
-                if (Column == Mediator.PlayerTankObserver.Column + 1)
+                if (Column == Mediator.PlayerTankObserver.Column + 1 && Row == Mediator.PlayerTankObserver.Row)
                 {
                     return true;
                 }

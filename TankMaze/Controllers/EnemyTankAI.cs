@@ -12,6 +12,8 @@ namespace TankMaze.Controllers
         private EnemyTank theEnemyTank;
         private List<MazeComponent.Direction> directions;
         private System.Timers.Timer timer;
+        private static bool alive = true;
+        private static bool done = false;
 
         public EnemyTankAI(EnemyTank theEnemyTank)
         {
@@ -77,9 +79,11 @@ namespace TankMaze.Controllers
                             if (CurrentDirection == MazeComponent.Direction.Down) goRow++;
                         }
                         if (CollisionDetector.WallCheck(goRow, goColumn)) throw new OperationCanceledException();
+                        if (CollisionDetector.PlayerTankCheck(goRow, goColumn)) alive = false;
                         if (goDirection == MazeComponent.Direction.Down || goDirection == MazeComponent.Direction.Up)
                         {
                             if (CollisionDetector.WallCheck(goRow + 1, goColumn)) throw new OperationCanceledException();
+                            if (CollisionDetector.PlayerTankCheck(goRow + 1, goColumn)) alive = false;
                             theEnemyTank.SetRow(goRow + 1);
                             theEnemyTank.SetColumn(goColumn);
                             theEnemyTank.SetRow(goRow);
@@ -87,11 +91,17 @@ namespace TankMaze.Controllers
                         else if (goDirection == MazeComponent.Direction.Left || goDirection == MazeComponent.Direction.Right)
                         {
                             if (CollisionDetector.WallCheck(goRow, goColumn + 1)) throw new OperationCanceledException();
+                            if (CollisionDetector.PlayerTankCheck(goRow, goColumn + 1)) alive = false;
                             theEnemyTank.SetColumn(goColumn + 1);
                             theEnemyTank.SetRow(goRow);
                             theEnemyTank.SetColumn(goColumn);
                         }
                         theEnemyTank.Source(goDirection);
+                        if (!alive && !done)
+                        {
+                            Ground.deathMenu();
+                            done = true;
+                        }
                         throw new Exception();
                     }
                     catch (OperationCanceledException)
@@ -109,8 +119,12 @@ namespace TankMaze.Controllers
 
         private void Step(object sender, System.Timers.ElapsedEventArgs e)
         {
-            Thread enemyTankThread = new Thread(Move);
-            enemyTankThread.Start();
+            try
+            {
+                Thread enemyTankThread = new Thread(Move);
+                enemyTankThread.Start();
+            }
+            catch (Exception) { }
         }
     }
 }

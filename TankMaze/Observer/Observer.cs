@@ -25,10 +25,5 @@ namespace TankMaze.Observer
             this.state = state;
             this.direction = direction;
         }
-
-        internal void Update(int v1, int v2, object direction, State.State state)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

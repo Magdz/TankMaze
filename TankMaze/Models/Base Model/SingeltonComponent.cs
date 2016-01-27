@@ -10,6 +10,7 @@ namespace TankMaze.Models
     {
         protected Observer.Observer observer;
         protected Image theComponent { get; }
+        public Direction direction { get; protected set; }
         public State.State state { get; private set; }
         protected static SingeltonComponent thePlayer = null;
         protected static SingeltonComponent theEnemyBase = null;
@@ -77,7 +78,7 @@ namespace TankMaze.Models
         public void Notify()
         {
             if (observer == null) return;
-            observer.Update(GetRow(), GetColumn(), MazeComponent.Direction.Special, state);
+            observer.Update(GetRow(), GetColumn(), (MazeComponent.Direction)direction, state);
         }
 
         public Observer.Observer getObserver()

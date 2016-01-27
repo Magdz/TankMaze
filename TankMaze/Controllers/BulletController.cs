@@ -47,6 +47,8 @@ namespace TankMaze.Controllers
                         else if(CollisionDetector.EnemyTankCheck(theBullet.GetRow(), theBullet.GetColumn()))
                         {
                             EnemyTank enemyTank = (EnemyTank)ObjectPool.getObject(ObjectPool.Type.EnemyTank, theBullet.GetRow(), theBullet.GetColumn());
+                            if (enemyTank == null) enemyTank = (EnemyTank)ObjectPool.getObject(ObjectPool.Type.EnemyTank, theBullet.GetRow() - 1, theBullet.GetColumn());
+                            if (enemyTank == null) enemyTank = (EnemyTank)ObjectPool.getObject(ObjectPool.Type.EnemyTank, theBullet.GetRow(), theBullet.GetColumn() - 1);
                             if (enemyTank.state.getState()) enemyTank.RemoveComponent(ObjectPool.Type.EnemyTank);
                             throw new Exception();
                         }

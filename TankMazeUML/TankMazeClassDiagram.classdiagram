@@ -1764,51 +1764,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="23b78bd9-1f02-4ba8-9160-0a1498f08485" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="dcdd9f73-515e-4f9b-81d1-a2604e0a5a4a" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="89ec58e4-0f2a-44e9-9d7c-651fed222817" name="v1" direction="In" isUnique="false">
-                  <elementDefinition Id="bdeb1754-8dde-41bf-ac89-2aeff77e6cc2" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="1b510f1d-22a6-4763-9a63-a85c55ab0806" LastKnownName="int" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="73f41ecb-9443-4b2c-9f05-e40242a4fa1d" name="v2" direction="In" isUnique="false">
-                  <elementDefinition Id="7acb5bc0-0d9a-4db7-954b-c16a32cf335d" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="1b510f1d-22a6-4763-9a63-a85c55ab0806" LastKnownName="int" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="1c729ce7-ab60-4357-865e-efff862ce789" name="direction" direction="In" isUnique="false">
-                  <elementDefinition Id="e10eb8f6-d2c8-4a60-ab96-f5fa174e8cbf" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="448641ba-37fb-4576-8c89-ad8bafbf5215" LastKnownName="Direction" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="441e6a83-7b19-49ab-be0d-36d5e09c4a66" name="state" direction="In" isUnique="false">
-                  <elementDefinition Id="ecbe6677-d3ef-401a-a746-e664f5d5afc4" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="79e803f5-ba3a-4bcf-b075-e3cc23fdc834" LastKnownName="State" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="141f00e8-b0d4-47e4-8d8e-2414c13504e2" direction="Return" isUnique="false">
-                  <elementDefinition Id="051e1bf5-f3a6-4d5b-b1a8-25ff8ca9efc1" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="b4f177ef-3a7a-4229-84e1-efac90d310ae" LastKnownName="void" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
