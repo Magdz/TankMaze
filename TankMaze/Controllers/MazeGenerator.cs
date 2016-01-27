@@ -25,8 +25,9 @@ namespace TankMaze.Controllers
             OnPathGeneration(300, 400, 5); // Bombs ID = 5
             OnPathGeneration(300, 400, 7); // Ammo ID = 7
             OnPathGeneration(300, 600, 8); // Gold ID = 8
-            GenerateEnemyTanks(1, 5);
+            GenerateEnemyTanks(1, 20);
             //console();
+            Maze[4, 2] = 0;
             Build();
         }
 
@@ -86,7 +87,29 @@ namespace TankMaze.Controllers
             List<int> Columns = RandomNumbers(length, Ground.TheGround.ColumnDefinitions.Count);
             for (int i = 0; i < length; ++i)
             {
-                if (Maze[Rows[i], Columns[i]] == -1 || Maze[Rows[i], Columns[i]] == 0) Maze[Rows[i], Columns[i]] = ID;
+                if (Maze[Rows[i], Columns[i]] == -1 || Maze[Rows[i], Columns[i]] == 0)
+                {
+                    if (Maze[Rows[i], Columns[i]] == 0)
+                    {
+                        try
+                        {
+                            if (random.Next(0, 1) == 0)
+                            {
+                                for (int j = 1; j < 3; ++j)
+                                    if(Maze[Rows[i] - j, Columns[i]] != 0)
+                                        Maze[Rows[i] - j, Columns[i]] = -ID;
+                            }
+                            else
+                            {
+                                for (int j = 1; j < 3; ++j)
+                                    if (Maze[Rows[i], Columns[i] - j] != 0)
+                                        Maze[Rows[i], Columns[i] - j] = -ID;
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    Maze[Rows[i], Columns[i]] = ID;
+                }
             }
         }
 
@@ -125,7 +148,7 @@ namespace TankMaze.Controllers
                                     playerTank.SetRow(playerTank.GetRow() - 1);
                                     playerController.Move(System.Windows.Input.Key.D);
                                 }
-                                else if (Maze[row + 1, column] == 1) playerController.Move(System.Windows.Input.Key.S);
+                                else playerController.Move(System.Windows.Input.Key.S);
                             }
                             catch(Exception) { }
                             break;
