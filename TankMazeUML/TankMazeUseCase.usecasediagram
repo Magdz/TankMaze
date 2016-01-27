@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="04c577ef-1526-42dc-a623-8277b2972175" name="UMLUseCaseDiagram1" linkedPackageId="9f39e2bf-8c49-4136-9dd1-67dfcf76ed6e" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="b631eedf-6f3e-4300-b94d-ee77ee588bc2">
+      <profileInstance Id="a2a7ec60-bed9-404a-83fe-2ad34d1d4980" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e975bc71-d358-4205-bd40-ba7ec09fea56">
+      <profileInstance Id="11a57ef7-25e9-4b1d-948a-c4759449cdf8" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="b78e001d-1032-4078-9742-6774b50c9e02" name="Player" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e5d43dca-9fa1-4db7-bb37-8d42c3fae84c" />
+        <targetEnds>
+          <association Id="c98fc7e0-01db-417a-8496-bffc3cbcd950" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Run Game" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d6721b40-04a9-4d39-be9c-3da3731fa5ab" LastKnownName="Main Menu" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5093b6f3-402a-4713-bef2-e895d88a879b" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="316b75eb-b4c3-4a9c-b006-649424fb494a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d6cd498d-af53-44b4-acd0-a935c4b850b2" name="Run Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="489597e9-7cc9-4caf-89c9-cd099709926e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="82bda1c4-4e05-4081-bff7-5126f0a6b763" />
+          </association>
+          <association Id="5022347b-0f91-4b6e-985b-9d6298a41fb3" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Move" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="56818347-68b4-4dc3-b7a2-59eb2b89e7b6" LastKnownName="Move" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4dede600-2063-4390-9ef8-1312cdedb174" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="96ceed5c-84e0-4d56-9ad4-2db79bfb81c4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bf203f45-1059-4bf4-aa32-f3946457c194" name="Move" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3b1808eb-957d-4232-9a54-3404381ae4ec" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a710bb7b-c5ec-45e9-9cc0-1883e75eb493" />
+          </association>
+          <association Id="af37acf7-c526-495a-a73f-55914a293cc6" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Fire" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="691a1ec4-21d6-40bb-9498-48e98342d435" LastKnownName="Fire" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7b1f3bf-44ee-4c1a-a28b-d618f0d98d22" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="44a3fbfa-2483-476f-bf29-d90d5a8372b6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ed221364-5832-428e-b17a-b629633d9ae5" name="Fire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5b7d9446-ab5d-441c-a26c-26e78f23e883" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e3622254-e287-4af7-86b8-bdc4f4aad109" />
+          </association>
+          <association Id="c2f84597-f501-4d92-b7e5-4c3bf813ac45" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Collect Gifts" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ffb24e77-0e83-42d5-9a75-b07b86c8d269" LastKnownName="Collect Gifts" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b39683df-61f4-4354-80c2-8c5e3de696dc" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6356070c-e928-4281-97a8-60d5e5d961c8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="19f37e2e-fe65-4393-8371-dfdeaa9fb666" name="Collect Gifts" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0fa5f4dc-8616-4019-8734-ce79aecc731c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c2a917cd-129b-4864-b02d-3136c9258e78" />
+          </association>
+          <association Id="df5921e9-783c-4a31-aae9-1973f7db71d5" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Die" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="71595cc6-4554-43fc-8baf-c566edafc1e7" LastKnownName="Die" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="67b7087f-4d7b-4bf0-9686-a9b0a0147a9b" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a8eeeb4c-a76d-4ad4-8f06-27e76073f2aa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="37b964b5-5296-4f1a-ab47-ae6c4b98d208" name="Die" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bab3f089-1f42-485e-aaaf-bd0d9ee49a30" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f2af3bf9-d138-4dac-8774-3b3b70d6c3d4" />
+          </association>
+          <association Id="fe87ba7a-4ae5-485e-9ffc-b560564d1c2b" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Win" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="96152dc7-697e-4754-90bf-6da93cea9ea6" LastKnownName="Win" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2d96cb32-b70c-424e-8fc0-75898af16a55" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ed30f10e-1090-46b7-a517-75c2dee8f7c1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bf901b56-9176-4bc3-8a40-06c0e6f54243" name="Win" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="41a8ae72-a16d-4e7a-9332-6304f220133d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="40483240-5ca3-40b1-b085-aa17dbb2feb1" />
+          </association>
+          <association Id="a46de3c9-fc0c-4441-85b4-ef0d5fdbedb2" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Pause" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="dec50858-dc7a-46ab-b817-200bb37a4c61" LastKnownName="Pause" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3a3ce46d-f338-494d-984d-e5ab4a31ffb4" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a19dd4a3-96e5-4280-95da-3a678e482998" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0c237658-3def-4d2f-afa2-43bfabce11bc" name="Pause" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b5d6f953-d193-41a2-b5e2-8a36e69d27b1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="686ec9e2-bc14-4a52-ac9c-706f499b9805" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="56818347-68b4-4dc3-b7a2-59eb2b89e7b6" name="Move" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="081a859d-2cd3-49b9-ae4c-70889c2e1fac" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="691a1ec4-21d6-40bb-9498-48e98342d435" name="Fire" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="72ae323f-578c-4547-bdc3-920acb4aee55" />
+        <additions>
+          <include Id="5416d25b-553c-44b8-9347-1cbc253fcae1">
+            <useCaseMoniker Id="5cc003d9-c386-4f7d-9e73-ed3e3b603f23" LastKnownName="Bomb" />
+            <elementDefinition Id="9e52a2c4-176a-477b-b0a8-346bbc7d7303" />
+          </include>
+          <include Id="6a32ea10-e5b9-4e76-9f6e-73da032748ac">
+            <useCaseMoniker Id="08152d1a-e6cb-4823-8409-55748cc4fd2f" LastKnownName="Brick Walls" />
+            <elementDefinition Id="dbb437c8-66e2-41aa-b287-4df04097260f" />
+          </include>
+          <include Id="be17e185-2eb9-47d8-a8b0-d793e9ba03f9">
+            <useCaseMoniker Id="5babe49a-722b-4821-8f74-e8f6898f911a" LastKnownName="Enemy" />
+            <elementDefinition Id="246b474a-60ae-4d5b-9a80-9ed1ad3f0d8e" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="71595cc6-4554-43fc-8baf-c566edafc1e7" name="Die" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="39348fb4-52ab-4ab3-affb-6ee9066f5ee3" />
+        <additions>
+          <include Id="d41a7930-968a-4d94-baa0-8f11345a1fe7">
+            <useCaseMoniker Id="41ac16ad-35c4-41e0-b4cb-52e06c6fe9da" LastKnownName=" Bomb Collision" />
+            <elementDefinition Id="fa7d5825-02f1-4064-afc6-59df75e17096" />
+          </include>
+          <include Id="96ff92d5-da83-4085-802f-c67e1fe286fb">
+            <useCaseMoniker Id="2de434c1-a5af-4170-ad95-197b1fdb1371" LastKnownName="EnemyAttack" />
+            <elementDefinition Id="b9992175-7b6b-48b2-a03a-4c1334aed35a" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d6721b40-04a9-4d39-be9c-3da3731fa5ab" name="Main Menu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5bd8da2c-ecab-48a5-a2cc-8aa8f38554ef" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="96152dc7-697e-4754-90bf-6da93cea9ea6" name="Win" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b60068c6-a3a7-49ff-970d-c60ad9fafd34" />
+        <additions>
+          <include Id="64c7e03c-f451-4767-9f03-6c6b74182dde">
+            <useCaseMoniker Id="198af80b-7ddd-4e1d-bc01-b25489e7f7c3" LastKnownName="      Fire Enemy Base" />
+            <elementDefinition Id="dd8c27b7-3755-408d-814f-97c77eb6e17d" />
+          </include>
+          <include Id="dbba673a-11be-4b8b-b8d8-95283de5507a">
+            <useCaseMoniker Id="d9686d25-a28f-4045-a70d-f95279f79cb2" LastKnownName="Solve Maze" />
+            <elementDefinition Id="1589a24a-84b1-4eb4-9194-5e3759613081" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ffb24e77-0e83-42d5-9a75-b07b86c8d269" name="Collect Gifts" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="abb5d498-3e47-4d08-b587-38b8a3863c88" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="dec50858-dc7a-46ab-b817-200bb37a4c61" name="Pause" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2eeafb06-2a49-450d-b04a-ae32068553ca" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8b76b3b1-c3d3-422a-b178-4629354f9e76" name="Load" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c026af54-8688-469c-84c6-b07d644a6e5f" />
+        <extendedCases>
+          <extend Id="6aab7931-7757-4c82-bd23-2181c279c47b">
+            <useCaseMoniker Id="dec50858-dc7a-46ab-b817-200bb37a4c61" LastKnownName="Pause" />
+            <elementDefinition Id="ab8463d8-b1fd-43e8-8f67-b9997e2e2d2a" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b3b7a1dd-0de3-4fb1-a15f-e88613206533" name="Save" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="96df092e-2aa2-4919-9fe3-ee7d0c21dfed" />
+        <extendedCases>
+          <extend Id="a5d2db30-b155-41a7-ad15-cd924053ff03">
+            <useCaseMoniker Id="dec50858-dc7a-46ab-b817-200bb37a4c61" LastKnownName="Pause" />
+            <elementDefinition Id="2b3203f4-d72a-4e7d-ba72-01f34903910e" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d3ab1fbe-6b50-40f5-a8f4-9d5f86d8b0dd" name="   Display Instructions" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="27adf913-bd54-478a-8c51-bfa7b68d9f3a" />
+        <extendedCases>
+          <extend Id="191cefe4-4919-46b2-bdab-cf9ef3f4c5e8">
+            <useCaseMoniker Id="d6721b40-04a9-4d39-be9c-3da3731fa5ab" LastKnownName="Main Menu" />
+            <elementDefinition Id="e534d0c7-91de-45e1-ab13-0b92ab501708" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1871197e-2175-4c90-8237-18a4d648f508" name="Collect Ammo" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a58a8b8f-5a0c-4934-8b9a-86d42f69015d" />
+        <extendedCases>
+          <extend Id="ef0bb7b7-654c-4fdb-a581-356b2d1f6910">
+            <useCaseMoniker Id="ffb24e77-0e83-42d5-9a75-b07b86c8d269" LastKnownName="Collect Gifts" />
+            <elementDefinition Id="c624b5e6-275e-438d-8b36-b1ae77f41abb" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5350e799-34ba-4b26-be0c-1b19b2102771" name="Collect Gold" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="24b17f1a-ee21-4685-9e8d-93247a1cadbd" />
+        <extendedCases>
+          <extend Id="2c0ff0b9-1e9f-4074-8383-10c2aba90b48">
+            <useCaseMoniker Id="ffb24e77-0e83-42d5-9a75-b07b86c8d269" LastKnownName="Collect Gifts" />
+            <elementDefinition Id="9f6da7ba-bd04-41a4-bec2-2ac4dfd84616" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="41ac16ad-35c4-41e0-b4cb-52e06c6fe9da" name=" Bomb Collision" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="03168bc4-2d9d-4dee-85a7-e6a874bacd47" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2de434c1-a5af-4170-ad95-197b1fdb1371" name="EnemyAttack" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9fbda36f-26aa-4cac-b677-479fe468359a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="198af80b-7ddd-4e1d-bc01-b25489e7f7c3" name="      Fire Enemy Base" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ef05be38-db1a-4e01-b361-2f9a449aff29" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d9686d25-a28f-4045-a70d-f95279f79cb2" name="Solve Maze" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8c4784e4-7284-4809-8bf7-0420c2ac8741" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5cc003d9-c386-4f7d-9e73-ed3e3b603f23" name="Bomb" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fe5221e1-c4b8-4331-a954-b0b1ac65722b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="08152d1a-e6cb-4823-8409-55748cc4fd2f" name="Brick Walls" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7f382cf3-c10a-41cf-a6e6-e73cabe904d7" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5babe49a-722b-4821-8f74-e8f6898f911a" name="Enemy" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c79385f5-0752-4b28-bc31-484d7f88ce0d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="63cedc27-1aea-4822-b50e-f49b553e08c8" name="Continue to    New Level" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b8428ac9-10b3-4d00-a817-e9abf9de5b9a" />
+        <extendedCases>
+          <extend Id="0c1c3f72-cf64-4981-9234-41aec79d829c">
+            <useCaseMoniker Id="96152dc7-697e-4754-90bf-6da93cea9ea6" LastKnownName="Win" />
+            <elementDefinition Id="b598af73-ae8e-4fe2-9a18-8e6fe3ff7b85" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c56b9bf5-336e-49d0-b50f-2bd43f52738a" name="Start New Game" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2d621361-47db-43d3-aeb6-5bcec93a5a0e" />
+        <extendedCases>
+          <extend Id="4132085b-1787-447d-83cb-c841dad5a0d1">
+            <useCaseMoniker Id="d6721b40-04a9-4d39-be9c-3da3731fa5ab" LastKnownName="Main Menu" />
+            <elementDefinition Id="6b6ee96b-284a-4187-8c7b-0ca4002cac08" />
+          </extend>
+          <extend Id="1ea9ea12-ec9e-4738-bf05-bf134c4de43a">
+            <useCaseMoniker Id="71595cc6-4554-43fc-8baf-c566edafc1e7" LastKnownName="Die" />
+            <elementDefinition Id="e644432a-7353-4532-84cd-65ad7a868232" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3ca0c500-ab1c-40eb-bb3e-5694040d3cf4" name="Exit" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="76de4548-f1b6-4b46-8c70-9c594abea7e5" />
+        <extendedCases>
+          <extend Id="7a79a2be-3fa5-4ebd-bcb5-a26d1a90b27a">
+            <useCaseMoniker Id="d6721b40-04a9-4d39-be9c-3da3731fa5ab" LastKnownName="Main Menu" />
+            <elementDefinition Id="dde18a45-713a-4ca8-8b17-98ae23a750ee" />
+          </extend>
+          <extend Id="64c0606e-a987-4020-9fb5-9d5d503102b6">
+            <useCaseMoniker Id="dec50858-dc7a-46ab-b817-200bb37a4c61" LastKnownName="Pause" />
+            <elementDefinition Id="a2d6ceaf-7e4b-4578-b6c5-fd9d1f056adc" />
+          </extend>
+          <extend Id="4c013b86-6cbb-4c17-912a-31563d5d4f19">
+            <useCaseMoniker Id="96152dc7-697e-4754-90bf-6da93cea9ea6" LastKnownName="Win" />
+            <elementDefinition Id="f435225a-173f-4567-9743-d242570c5de2" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="13f4864b-f15d-4823-84db-4fa9cfccd64c" name="Continue" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="12fe57ee-76c1-4e44-9af4-ee3dce79dd98" />
+        <extendedCases>
+          <extend Id="0b163dfb-5828-41e6-a081-794614f55800">
+            <useCaseMoniker Id="dec50858-dc7a-46ab-b817-200bb37a4c61" LastKnownName="Pause" />
+            <elementDefinition Id="8135591f-d1f1-4d03-b751-194c79ab64f9" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="9f39e2bf-8c49-4136-9dd1-67dfcf76ed6e" name="TankMazeUML">
+    <elementDefinition Id="96f4a519-6343-4f4d-ac7a-32e742cc87da" />
+  </package>
+</useCaseModelRoot>
