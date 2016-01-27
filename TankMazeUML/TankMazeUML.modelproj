@@ -32,12 +32,12 @@
       <SubType>Content</SubType>
       <DependentUpon>TankMazeClassDiagram.classdiagram</DependentUpon>
     </Content>
-    <Content Include="UMLUseCaseDiagram1.usecasediagram">
+    <Content Include="TankMazeUseCase.usecasediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLUseCaseDiagram1.usecasediagram.layout">
+    <Content Include="TankMazeUseCase.usecasediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>UMLUseCaseDiagram1.usecasediagram</DependentUpon>
+      <DependentUpon>TankMazeUseCase.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\TankMazeUML.uml">
